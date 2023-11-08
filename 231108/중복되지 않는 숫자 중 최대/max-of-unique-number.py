@@ -1,5 +1,5 @@
 n=int(input())
-arr[1001]= [0] *1001
+arr= [0 for _ in range(1001)]
 tmp = list(map(int,input().split()))
 for i in range(n):
     arr[i] = tmp[i]
