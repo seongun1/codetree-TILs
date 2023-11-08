@@ -4,6 +4,9 @@ max_num =0
 index =0
 arr.sort(reverse=True)
 while(1):
+    if n==1:
+        print(arr[n])
+        break
     if arr[index] == arr[index+1]:
         index +=2
     else:
