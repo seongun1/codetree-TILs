@@ -54,13 +54,20 @@ for _ in range(int(input())):
 
                 if not in_range(nx,ny):
                     new_d = crash_with_wall(arr[x][y][1])
-                    new_temp[x][y] = [1,new_d]
+                    if new_temp[x][y] == 0:
+                        new_temp[x][y] = [1,new_d]
+                    else:
+                        new_temp[x][y].append([1,new_d])
                     continue
 
                 if new_temp[nx][ny] == 0:
                     new_temp[nx][ny] = arr[x][y]
                 else:
                     new_temp[nx][ny].append(arr[x][y])
+
+        # for i in new_temp:
+        #     print(*i)
+        # print('----new_temp----')
 
         for x in range(n):
             for y in range(n):
@@ -72,6 +79,9 @@ for _ in range(int(input())):
                         arr[x][y] = 0
                     else:
                         arr[x][y] = new_temp[x][y]
+        # for i in arr:
+        #     print(*i)
+        # print('----after----')
 
     cnt = 0
     for i in range(n):
