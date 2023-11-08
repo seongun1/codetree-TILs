@@ -1,8 +1,12 @@
+import sys
 n=int(input())
 arr = list(map(int,input().split()))
 max_num =0
 index =0
 arr.sort(reverse=True)
+if n==1:
+    print(arr[0])
+    sys.exit()
 while(arr[0] == arr[1] and arr[0] != -1):
     cnt =2
     while(1):
