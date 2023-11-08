@@ -15,6 +15,7 @@ while(1):
         break
     if arr[index] == arr[index+1]:
         index +=2
+        continue
     else:
         print(arr[index])
         break
