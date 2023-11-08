@@ -8,7 +8,7 @@ index =0
 arr.sort(reverse=True)
 while(1):
     if n==1:
-        print(arr[n])
+        print(arr[0])
         break
     elif n==0:
         print(-1)
