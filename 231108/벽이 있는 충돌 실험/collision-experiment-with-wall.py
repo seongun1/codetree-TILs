@@ -1,4 +1,4 @@
-MAX_TIME = 100 # N의 최대가 50이여서
+MAX_TIME = 50 # N의 최대가 50이여서
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
@@ -38,10 +38,6 @@ for _ in range(int(input())):
 
         arr[x][y] = [1,d]
     
-    # for i in arr:
-    #     print(*i)
-    # print('----')
-    
     for _ in range(MAX_TIME):
         new_temp = [[0] * (n) for _ in range(n)]
         for x in range(n):
@@ -65,13 +61,8 @@ for _ in range(int(input())):
                 else:
                     new_temp[nx][ny].append(arr[x][y])
 
-        # for i in new_temp:
-        #     print(*i)
-        # print('----new_temp----')
-
         for x in range(n):
             for y in range(n):
-                #print("x : {}, y: {}, new_temp[x][y] : {}".format(x,y,new_temp[x][y]))
                 if new_temp[x][y] == 0:
                     arr[x][y] = 0
                 else:
@@ -79,9 +70,6 @@ for _ in range(int(input())):
                         arr[x][y] = 0
                     else:
                         arr[x][y] = new_temp[x][y]
-        # for i in arr:
-        #     print(*i)
-        # print('----after----')
 
     cnt = 0
     for i in range(n):
