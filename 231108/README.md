@@ -1,18 +1,19 @@
 # 📖 학습하기
 
 ## 📚 단계별 학습
-23년 11월 08일 목표(140px)까지 140px 남았습니다.
+23년 11월 08일 목표(140px)까지 50px 남았습니다.
 
-![0xp](https://img.shields.io/badge/EXP-0xp-%235cb85c.svg?for-the-badge)
-![4일째](https://img.shields.io/badge/연속학습-4일째-%23E34F26.svg?for-the-badge)
+![90xp](https://img.shields.io/badge/EXP-90xp-%235cb85c.svg?for-the-badge)
+![6일째](https://img.shields.io/badge/연속학습-6일째-%23E34F26.svg?for-the-badge)
 
 |총 문제수|획득 경험치|연속 학습|
 |---:|---:|---|
-1|0xp|4일째🔥|
+2|90xp|6일째🔥|
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Novice Low / 1차원 배열 / Min/Max](https://www.codetree.ai/missions?missionId=4)|[[연습]중복되지 않는 숫자 중 최대](https://www.codetree.ai/missions/4/problems/max-of-unique-number)|![보통][medium]|![Failed][failed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231108/%EC%A4%91%EB%B3%B5%EB%90%98%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EC%88%AB%EC%9E%90%20%EC%A4%91%20%EC%B5%9C%EB%8C%80/max-of-unique-number.py)|
+|[Intermediate Low / Simulation / 격자 안에서 여러 객체를 이동](https://www.codetree.ai/missions?missionId=2)|[[연습]벽이 있는 충돌 실험](https://www.codetree.ai/missions/2/problems/collision-experiment-with-wall)|![보통][medium]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231108/%EB%B2%BD%EC%9D%B4%20%EC%9E%88%EB%8A%94%20%EC%B6%A9%EB%8F%8C%20%EC%8B%A4%ED%97%98/collision-experiment-with-wall.py)|
+|[Novice Low / 1차원 배열 / Min/Max](https://www.codetree.ai/missions?missionId=4)|[[연습]중복되지 않는 숫자 중 최대](https://www.codetree.ai/missions/4/problems/max-of-unique-number)|![보통][medium]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231108/%EC%A4%91%EB%B3%B5%EB%90%98%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EC%88%AB%EC%9E%90%20%EC%A4%91%20%EC%B5%9C%EB%8C%80/max-of-unique-number.py)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.
