@@ -1,110 +1,64 @@
+n, m, t, k = map(int, input().split())
+arr = [[[] for _ in range(n)]for _ in range(n)]
+next_arr = [[[] for _ in range(n)]for _ in range(n)]
+
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
-# 상 하 좌 우
-mapper = {
-    'U' : 0,
-    'D' : 1,
-    'L' : 2,
-    'R' : 3
-}
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
-
-# 방향 전환
-def crash_with_wall(d):
-    if d == 'U':
-        d = 'D'
-    elif d == 'D':
-        d = 'U'
-    elif d == 'L':
-        d = 'R'
-    elif d == 'R':
-        d = 'L'
-    return d
+def next_pos(x, y, vnum, move_dir):
+    dx, dy = [-1, 0, 0, 1], [0, 1, -1, 0]
     
+    for _ in range(vnum):
+        nx, ny = x + dx[move_dir], y + dy[move_dir]
 
-n,m,t,k = map(int,input().split())
+        if not in_range(nx, ny):
+            move_dir = 3 - move_dir
+            nx, ny = x + dx[move_dir], y + dy[move_dir]
+        x, y = nx, ny
 
-arr = [[0] * n for _ in range(n)]
-#arr = [[[] for _ in range(n)] for _ in range(n)]
+    return (x, y, move_dir)
 
-for i in range(1,m+1):
-    x,y,d,v = input().split()
+def move_all():
+    for x in range(n):
+        for y in range(n):
+            for v, num, move_dir in arr[x][y]:
+                next_x, next_y, next_dir = next_pos(x, y, v, move_dir)
+                next_arr[next_x][next_y].append((v, num, next_dir))
+
+def select_marbles():
+    for i in range(n):
+        for j in range(n):
+            if len(next_arr[i][j]) >= k:
+                next_arr[i][j].sort(lambda x: (-x[0], -x[1]))
+                while len(next_arr[i][j]) > k:
+                    next_arr[i][j].pop()
+
+
+dir_mapper = {
+    "U": 0,
+    "R": 1,
+    "L": 2,
+    "D": 3
+}
+
+for i in range(m):
+    x, y, d, v = input().split()
     x,y,v = int(x),int(y),int(v)
-    x -= 1
-    y -= 1
 
-    arr[x][y] = [1,d,v,i] # i는 번호다.
-
-# print('---- 초기 arr ----')
-# for i in arr:
-#     print(*i)
-# print('---- 초기 arr ----')
+    arr[x - 1][y - 1].append((v, i + 1, dir_mapper[d]))
 
 for _ in range(t):
-    #new_temp = [[[] for _ in range(n)] for _ in range(n)]
-    new_temp = [[0] * n for _ in range(n)]
-    for x in range(n):
-        for y in range(n):
-            # 이동해서 또 해당 위치에 걸리는거 체크
-            if arr[x][y] == 0:
-                continue
-
-            speed = arr[x][y][2]
-            nx,ny = x + dx[mapper[arr[x][y][1]]] * speed , y + dy[mapper[arr[x][y][1]]] * speed 
-
-            if not in_range(nx,ny):
-                arr[x][y][1] = crash_with_wall(arr[x][y][1])
-                while 0 > nx or nx >= n or 0 > ny or ny >= n:
-                    if nx < 0:
-                        nx,ny = abs(nx),ny
-                    elif ny < 0:
-                        nx,ny = nx,abs(ny)
-                    elif nx >= n:
-                        nx,ny = 2*n-nx-2,ny
-                    elif  ny >= n:
-                        nx,ny = nx, 2*n-ny-2
-
-            if new_temp[nx][ny] == 0:
-                new_temp[nx][ny] = arr[x][y]
-            else:
-                new_temp[nx][ny].append(arr[x][y])
-            
-            # print('new temp array------')
-            # for i in new_temp:
-            #     print(*i)   
-            # print('new temp array------')
-
-    for x in range(n):
-        for y in range(n):
-            #tmp = [[] * n for _ in range(n)]
-            tmp = []
-            if new_temp[x][y] == 0:
-                arr[x][y] = []
-            else:
-
-                #length = len(new_temp[x][y])
-
-                #for i in range(length):
-                # [1, 'D', 1, 0, [1, 'R', 3, 1], [1, 'U', 1, 2]] 이렇게 데이터가 들어온다.
-                tmp.append(new_temp[x][y][:4])
-                for j in new_temp[x][y][4:]:
-                    tmp.append(j)
-                new_temp[x][y] = tmp
-
-                #print("new_temp[x][y] :", new_temp[x][y])
-
-                if len(new_temp[x][y]) > k:
-                    new_temp[x][y].sort(key=lambda x: (-x[2], -x[3]))
-                    arr[x][y] = new_temp[x][y][:k]
-                else:
-                    arr[x][y] = new_temp[x][y]
-
-# print('--------after --------')
-# for i in arr:
-#     print(*i)
-# print('--------after --------')
+    for i in range(n):
+        for j in range(n):
+            next_arr[i][j] = []
+		
+    move_all()
+    
+    select_marbles()
+    
+    for i in range(n):
+        for j in range(n):
+            arr[i][j] = next_arr[i][j]
 
 cnt = 0
 for i in range(n):
