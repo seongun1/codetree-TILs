@@ -33,7 +33,7 @@ def move_all():
         for y in range(n):
             for speed, idx, direct in arr[x][y]:
                 next_x,next_y,next_dir = next_pos(x,y,speed,direct)
-                new_arr[next_x][next_y].append((speed, idx, direct))
+                next_arr[next_x][next_y].append((speed, idx, direct))
 
 def simulate():
     for i in range(n):
