@@ -26,25 +26,28 @@ def next_pos(x,y,v,direct):
     
     return (x,y,direct)
 
+
 def move_all():
     for x in range(n):
         for y in range(n):
             for speed, idx, direct in arr[x][y]:
                 next_x,next_y,next_dir = next_pos(x,y,speed,direct)
-                new_arr[next_x][next_y].append([speed, idx, direct])
+                new_arr[next_x][next_y].append((speed, idx, direct))
+
 
 def simulate():
     for x in range(n):
         for y in range(n):
-            if len(new_arr[x][y]) > k:
+            if len(new_arr[x][y]) >= k:
                 new_arr[x][y].sort(key = lambda x : (-x[0],-x[1]))
                 while len(new_arr[x][y]) > k:
                     new_arr[x][y].pop()
 
+
 for i in range(m):
     x,y,d,v = input().split()
     x,y,v = int(x), int(y),int(v)
-    arr[x-1][y-1].append([v,i+1,mapper[d]])
+    arr[x-1][y-1].append((v,i+1,mapper[d]))
 
 for _ in range(t):
     for x in range(n):
@@ -61,5 +64,6 @@ for _ in range(t):
 cnt = 0
 for i in range(n):
     for j in range(n):
-        cnt += len(arr[i][j])
+        if arr[i][j] != 0:
+            cnt += len(arr[i][j])
 print(cnt)
