@@ -4,14 +4,20 @@
 23년 11월 13일 목표(140px)를 달성했어요🥳.
 
 ![190xp](https://img.shields.io/badge/EXP-190xp-%235cb85c.svg?for-the-badge)
-![1일째](https://img.shields.io/badge/연속학습-1일째-%23E34F26.svg?for-the-badge)
+![2일째](https://img.shields.io/badge/연속학습-2일째-%23E34F26.svg?for-the-badge)
 
 |총 문제수|획득 경험치|연속 학습|
 |---:|---:|---|
-8|190xp|1일째🔥|
+14|190xp|2일째🔥|
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
+|[Novice Low / 2차원 배열 / 순서대로 채우기](https://www.codetree.ai/missions?missionId=4)|[[개념]배열로 사각형 만들기](https://www.codetree.ai/missions/4/problems/print-array-in-rectangle)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EB%B0%B0%EC%97%B4%EB%A1%9C%20%EC%82%AC%EA%B0%81%ED%98%95%20%EB%A7%8C%EB%93%A4%EA%B8%B0/print-array-in-rectangle.py)|
+|[Novice Low / 2차원 배열 / 순서대로 채우기](https://www.codetree.ai/missions?missionId=4)|[[연습]파스칼의 삼각형](https://www.codetree.ai/missions/4/problems/pascal's-triangle)|![보통][medium]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%ED%8C%8C%EC%8A%A4%EC%B9%BC%EC%9D%98%20%EC%82%BC%EA%B0%81%ED%98%95/pascal's-triangle.py)|
+|[Novice Low / 2차원 배열 / 순서대로 채우기](https://www.codetree.ai/missions?missionId=4)|[[테스트]격자로 사각형 만들기](https://www.codetree.ai/missions/4/problems/print-grid-in-rectangle)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EA%B2%A9%EC%9E%90%EB%A1%9C%20%EC%82%AC%EA%B0%81%ED%98%95%20%EB%A7%8C%EB%93%A4%EA%B8%B0/print-grid-in-rectangle.py)|
+|[Novice Low / 2차원 배열 / 격자로서의 2차원 배열](https://www.codetree.ai/missions?missionId=4)|[[연습]격자에 점 그리기](https://www.codetree.ai/missions/4/problems/draw-points-on-grid)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EA%B2%A9%EC%9E%90%EC%97%90%20%EC%A0%90%20%EA%B7%B8%EB%A6%AC%EA%B8%B0/draw-points-on-grid.py)|
+|[Novice Low / 2차원 배열 / 격자로서의 2차원 배열](https://www.codetree.ai/missions?missionId=4)|[[테스트]격자 모양 출력하기](https://www.codetree.ai/missions/4/problems/print-grid-shape)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EA%B2%A9%EC%9E%90%20%EB%AA%A8%EC%96%91%20%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0/print-grid-shape.py)|
+|[Novice Low / 2차원 배열 / 격자로서의 2차원 배열](https://www.codetree.ai/missions?missionId=4)|[[개념]동전이 있는 위치](https://www.codetree.ai/missions/4/problems/Where-coins-are-located)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EB%8F%99%EC%A0%84%EC%9D%B4%20%EC%9E%88%EB%8A%94%20%EC%9C%84%EC%B9%98/Where-coins-are-located.py)|
 |[Novice Low / 2차원 배열 / 2차원 배열과 패턴](https://www.codetree.ai/missions?missionId=4)|[[연습]대각선으로 숫자 채우기](https://www.codetree.ai/missions/4/problems/diagonal-numbering)|![어려움][hard]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EB%8C%80%EA%B0%81%EC%84%A0%EC%9C%BC%EB%A1%9C%20%EC%88%AB%EC%9E%90%20%EC%B1%84%EC%9A%B0%EA%B8%B0/diagonal-numbering.py)|
 |[Novice Low / 문자열 / 공백없는 문자열 입력받아 출력하기](https://www.codetree.ai/missions?missionId=4)|[[개념]문자열의 길이 출력하기](https://www.codetree.ai/missions/4/problems/print-string's-range)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0/print-string's-range.py)|
 |[Novice Low / 문자열 / 공백없는 문자열 입력받아 출력하기](https://www.codetree.ai/missions?missionId=4)|[[개념]문자열 두번 출력하기](https://www.codetree.ai/missions/4/problems/print-string-twice)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/seongun1/codetree-TILs/blob/main/231113/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EB%91%90%EB%B2%88%20%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0/print-string-twice.py)|
