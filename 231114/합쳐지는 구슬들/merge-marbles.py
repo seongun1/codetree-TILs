@@ -20,10 +20,6 @@ for i in range(1,m+1):
 
     arr[int(r)-1][int(c)-1] = [(i, int(w), mapper[d])] # 번호 , 무게 , 방향
 
-# print('---초기 arr----')
-# for i in arr:
-#     print(*i)
-# print('-------')
 
 def next_pos(x,y,direct):
     
@@ -46,7 +42,6 @@ def move_all():
 max_weight = -1
 
 def simulate():
-    global max_num
     for i in range(n):
         for j in range(n): # 구슬 번호, 구슬 무게, 방향
             length = len(next_arr[i][j])
@@ -61,8 +56,7 @@ def simulate():
                     w += next_arr[i][j][h][1]
 
                     if next_arr[i][j][h][0] >= temp_num:
-                        temp_num = next_arr[i][j][h][0]
-                        new_dir = next_arr[i][j][h][2]
+                        temp_num, new_dir = next_arr[i][j][h][0], next_arr[i][j][h][2]
                         
                 next_arr[i][j] = [(temp_num, w, new_dir)]
 
@@ -75,11 +69,6 @@ for _ in range(t):
 		
     move_all()
     simulate()
-
-    # print('-----중간 점검-----')
-    # for i in next_arr:
-    #     print(*i)
-    # print('----------')
     
     for i in range(n):
         for j in range(n):
