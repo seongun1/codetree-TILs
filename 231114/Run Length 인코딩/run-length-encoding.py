@@ -13,5 +13,7 @@ while (index != len(arr)-1):
     index =j
     if index == len(arr)-1 and arr[index] != arr[index-1]:
         tmp += arr[index] + '1'
+if (len(arr) ==1):
+    tmp += arr[index]+'1'
 print(len(tmp))
 print(tmp)
