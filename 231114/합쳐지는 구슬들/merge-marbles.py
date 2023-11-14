@@ -50,7 +50,6 @@ def simulate():
     global max_num
     for i in range(n):
         for j in range(n): # 구슬 번호, 구슬 무게, 방향
-            #print(next_arr[i][j])
             length = len(next_arr[i][j])
             if length == 0:
                 continue
