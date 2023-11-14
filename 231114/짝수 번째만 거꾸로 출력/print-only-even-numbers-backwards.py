@@ -1,4 +1,7 @@
 string = input()
-string = string[::-1]
-for i in range(0,len(string),2):
-    print(string[i],end='')
+tmp =''
+for i in range(len(string)):
+    if i%2:
+        tmp +=string[i]
+tmp = tmp[::-1]
+print(tmp)
