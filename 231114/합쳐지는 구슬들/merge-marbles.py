@@ -44,7 +44,6 @@ def move_all():
                 next_arr[next_x][next_y].append((idx, w, next_dir))
 
 max_weight = -1
-max_num = m
 
 def simulate():
     global max_num
@@ -65,8 +64,7 @@ def simulate():
                         temp_num = next_arr[i][j][h][0]
                         new_dir = next_arr[i][j][h][2]
                         
-                max_num += 1
-                next_arr[i][j] = [(max_num, w, new_dir)]
+                next_arr[i][j] = [(temp_num, w, new_dir)]
 
 
 
