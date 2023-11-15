@@ -1,3 +1,4 @@
+import sys
 a=list(input())
 b=list(input())
 t=len(a)
@@ -16,4 +17,7 @@ while (i<len(a)-1):
         i=0
     else:
         i+=1
+if len(a) == len(b) and len(a) ==1 and a[0] == b[0]:
+    sys.exit()
+
 print(''.join(a))
