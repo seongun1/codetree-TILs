@@ -1,0 +1,5 @@
+string=input()
+index = string.find('e')
+string = list(string)
+string.pop(index)
+print(''.join(string))
