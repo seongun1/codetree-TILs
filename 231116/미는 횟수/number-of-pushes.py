@@ -6,6 +6,6 @@ while (cnt <= len(a)):
     a = a[1:] + a[0]
     if a==b:
         break
-if cnt > len(a):
+if cnt >= len(a):
     cnt = -1
 print(cnt)
