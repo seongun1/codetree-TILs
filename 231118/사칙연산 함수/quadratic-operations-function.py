@@ -7,7 +7,7 @@ def mod (a,b):
 def mul (a,b):
     return a*b
 def div (a,b):
-    return int(a,b)
+    return int(a/b)
 
 if o =='+':
     print(f"{a} + {c} = {add(a,c)}")
