@@ -1,3 +1,7 @@
+import sys
+INT_MAX = sys.maxsize
+INT_MIN = -sys.maxsize
+
 mapper = {
     "U": 0,
     "R": 1,
@@ -45,14 +49,34 @@ def move():
 
     return crash   
 
+def get_max_min_pos(x, y):
+    global max_x, max_y, min_x, min_y
+
+    if x > max_x : 
+        max_x = x
+    elif x < min_x :
+        min_x = x
+    
+    if y > max_y : 
+        max_y = y
+    elif y < min_y :
+        min_y = y
+
 for _ in range(int(input())):
     N = int(input())
+
+    max_x, max_y = INT_MIN, INT_MIN 
+    min_x, min_y = INT_MAX, INT_MAX
+
     marbles, record = [], -1
     for i in range(1,N+1):
         x,y,w,d = input().split()
         marbles.append( [i,(int(x) + OFFSET_1)*2,(int(y) + OFFSET_1)*2,int(w),mapper[d]] )
+        get_max_min_pos((int(x) + OFFSET_1) * 2, (int(y) + OFFSET_1) * 2)
 
-    for second in range(4001):
+    max_time = max( (max_x - min_x), (max_y - min_y) )
+
+    for second in range(max_time):
         if move():
             record = second+1
 
