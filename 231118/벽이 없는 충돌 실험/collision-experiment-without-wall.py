@@ -32,7 +32,9 @@ def move():
             coords.append((nx, ny))
         else:
             crash = True
-            if (grid[nx][ny][3] > w) or (grid[nx][ny][3] == w and grid[nx][ny][0] > idx):
+            if grid[nx][ny][3] > w:
+                continue
+            if grid[nx][ny][3] == w and grid[nx][ny][0] > idx:
                 continue
             grid[nx][ny] = [idx, nx, ny, w, d]
 
