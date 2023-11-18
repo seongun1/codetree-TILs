@@ -1,5 +1,6 @@
 import sys
 input = sys.stdin.readline
+BLANK = -1
 
 mapper = {
     "U": 0,
@@ -9,7 +10,7 @@ mapper = {
 }
 
 coords = []
-grid = [[None for _ in range(4001)] for __ in range(4001)]
+grid =  [[BLANK] * (4001) for i in range(4001)]
 OFFSET_1 = 1000
 dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 
@@ -32,7 +33,7 @@ def move():
             continue
 
         # 나중에 grid 배열 초기화할때 기록한 부분만 지우기 위해 따로 좌표 기억해두기    
-        if grid[nx][ny] == None:
+        if grid[nx][ny] == BLANK:
             grid[nx][ny] = [idx, nx, ny, w, d]
             coords.append((nx, ny))
         else:
@@ -46,7 +47,7 @@ def move():
     marbles = []
     for x, y in coords:
         marbles.append(grid[x][y])
-        grid[x][y] = None
+        grid[x][y] = BLANK
 
     return crash   
 
