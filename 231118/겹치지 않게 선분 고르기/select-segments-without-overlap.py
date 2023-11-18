@@ -13,7 +13,7 @@ count = 1
 for i in range(1, n):
     start, finish = line[i] 
 
-    if start >= end:
+    if start > end:
         count += 1
         end = finish
 
