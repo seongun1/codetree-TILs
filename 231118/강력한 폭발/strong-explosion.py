@@ -57,10 +57,6 @@ def boom(tmp):
         for j in range(n):
             if new_arr[i][j] == -1:
                 cnt += 1
-    
-    for i in new_arr:
-        print(*i)
-    print('---')
 
     return cnt
 
