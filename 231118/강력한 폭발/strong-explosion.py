@@ -5,6 +5,9 @@ arr,ans = [], []
 for i in range(n):
     arr.append(list(map(int,input().split())))
 
+dx,dy = [-1,1,0,0],[0,0,-1,1]
+dxs,dys = [-1,-1,1,1],[-1,1,-1,1]
+
 for i in range(n):
     for j in range(n):
         if arr[i][j] == 1:
@@ -29,26 +32,20 @@ def boom(tmp):
                         new_arr[i+h][j] = -1
 
                 elif tmp[idx] == 2:
-                    if in_range(i+1,j):
-                        new_arr[i+1][j] = -1
-                    if in_range(i-1,j):
-                        new_arr[i-1][j] = -1
-                    if in_range(i,j+1):
-                        new_arr[i][j+1] = -1
-                    if in_range(i,j-1):
-                        new_arr[i][j-1] = -1
                     new_arr[i][j] = -1
+                    for h in range(4):
+                        nx,ny = i + dx[h], j + dy[h]
+                        if in_range(nx,ny):
+                            new_arr[nx][ny] = -1
 
                 elif tmp[idx] == 3:
-                    if in_range(i-1,j-1):
-                        new_arr[i-1][j-1] = -1
-                    if in_range(i-1,j+1):
-                        new_arr[i-1][j+1] = -1
-                    if in_range(i+1,j-1):
-                        new_arr[i+1][j-1] = -1
-                    if in_range(i+1,j+1):
-                        new_arr[i+1][j+1] = -1
                     new_arr[i][j] = -1
+                    for h in range(4):
+                        nx,ny = i + dxs[h], j + dys[h]
+                        if in_range(nx,ny):
+                            new_arr[nx][ny] = -1
+                    
+
                 idx += 1
                 if idx == boom_cnt:
                     flag = True
@@ -61,6 +58,10 @@ def boom(tmp):
             if new_arr[i][j] == -1:
                 cnt += 1
     
+    for i in new_arr:
+        print(*i)
+    print('---')
+
     return cnt
 
 maxcnt = -1
