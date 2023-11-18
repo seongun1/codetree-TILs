@@ -2,7 +2,7 @@ y=int(input())
 def is_yunyear(n):
     if not n%4 and n%100 and n%400:
         return True
-    elif not n%4 and n%100:
+    elif not n%4 and not n%100:
         return False
     elif not n%4:
         return True
