@@ -1,20 +1,18 @@
 n = int(input())
-line = []
+arr = []
 
 for _ in range(n):
-    x1, x2 = map(int, input().split())
-    line.append((x1, x2))
+    arr.append(list(map(int, input().split())))
 
-line.sort(key=lambda x: x[0])
+arr.sort(key=lambda x: x[1])
 
-end = line[0][1]  
-count = 1  
+endPoint = -1 
+cnt = 0  
 
-for i in range(1, n):
-    start, finish = line[i] 
+for i in arr:
+    start, end = i
+    if start > endPoint:
+        cnt += 1
+        endPoint = end
 
-    if start > end:
-        count += 1
-        end = finish
-
-print(count)
+print(cnt)
