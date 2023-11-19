@@ -4,9 +4,9 @@ def is_yunyear(y):
         return False
     elif y%100:
         return True
-    elif not y%400:
-        return True
-    return False
+    elif y%400:
+        return False
+    return True
 
 def end_of_month(y,m):
     if m==11 or m==9 or m==6 or m==4:
