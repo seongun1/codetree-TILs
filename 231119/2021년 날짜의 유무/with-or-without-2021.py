@@ -1,6 +1,6 @@
 m,d = map(int,input().split())
 def is_date(m,n):
-    if not m>=1 and not m<=12:
+    if not m>=1 or not m<=12:
         return False
     if m == 1 or m==3 or m==5 or m==7 or m==8 or m==10 or m ==12:
         if 1<= n <= 31:
