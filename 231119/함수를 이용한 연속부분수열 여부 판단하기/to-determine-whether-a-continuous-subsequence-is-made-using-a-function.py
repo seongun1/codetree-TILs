@@ -2,6 +2,7 @@ a,b=map(int,input().split())
 arr=list(map(int,input().split()))
 brr=list(map(int,input().split()))
 def is_bubun(a,b,an,bn):
+    flag = False
     for i in range(an-bn+1):
         if a[i] == b[0]:
             flag =True
