@@ -10,6 +10,7 @@ def is_bubun(a,b,an,bn):
                 if a[i+j] != b[j]:
                     flag =False
                     break
+        
     if flag:
         return True
     else:
