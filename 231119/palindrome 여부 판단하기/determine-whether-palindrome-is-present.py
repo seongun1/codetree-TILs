@@ -1,8 +1,7 @@
 a= input()
 def is_palindrome(string):
-    a = string[::-1]
-    for i in range(len(string)):
-        if string[i] != a[i]:
-            return 'No'
-    return 'Yes'
+    if string == string[::-1]:
+        return 'Yes'
+    else:
+        return 'No'
 print(is_palindrome(a))
