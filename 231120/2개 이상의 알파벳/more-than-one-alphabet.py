@@ -5,7 +5,7 @@ def is_over_two(a):
         return 'No'
     else:
         for i in a:
-            if a != i:
+            if  tmp != i:
                 return 'Yes'
         return 'No'
 print(is_over_two(a))
