@@ -12,10 +12,7 @@ def is_bubun(a,b,an,bn):
                     break
             if flag:
                 return True
-        
-    if flag:
-        return True
-    else:
+    if not flag:
         return False
 
 
