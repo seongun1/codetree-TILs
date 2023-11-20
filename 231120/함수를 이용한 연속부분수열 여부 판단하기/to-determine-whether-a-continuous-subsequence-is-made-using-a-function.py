@@ -10,10 +10,8 @@ def is_bubun(a,b,an,bn):
                 if a[i+j] != b[j]:
                     flag =False
                     break
-            if flag:
-                return True
-    if not flag:
-        return False
+            return True
+    return False
 
 
 if is_bubun(arr,brr,a,b):
