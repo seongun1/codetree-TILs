@@ -6,7 +6,6 @@ def print_odd(n):
 def print_even(n):
     if n==0:
         return 0
-    n -= 2
     return  print_even(n-2) +n
 if not n%2:
     print(print_even(n))
