@@ -6,4 +6,4 @@ def fun(n):
         return 4
     else:
         return (fun(n-2) * fun(n-1)) %100 
-print(fun(5))
+print(fun(n))
