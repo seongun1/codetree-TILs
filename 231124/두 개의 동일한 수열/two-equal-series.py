@@ -7,5 +7,5 @@ def is_same():
     for i in range(n):
         if a[i] != b[i]:
             return 'No'
-        return 'Yes'
+    return 'Yes'
 print(is_same())
