@@ -41,21 +41,19 @@ min_cnt = 200
 def print_ans():
     global min_cnt
     ans = move(temp_line)
-    flag = True
 
     for i in range(n):
         if ans[i] != result[i]:
-            flag = False
-            break
+            return
 
-    if flag:
-        dup_cnt = 0
-        for i in range(len(temp_line)-1):
-            for j in range(i+1, len(temp_line)):
-                if (temp_line[i][0] == temp_line[j][0]) and (temp_line[i][1] == temp_line[j][1]):
-                    dup_cnt += 1
-        if min_cnt >= len(temp_line):
-            min_cnt = len(temp_line) - dup_cnt
+    #print(ans)
+    dup_cnt = 0
+    for i in range(len(temp_line)-1):
+        for j in range(i+1, len(temp_line)):
+            if (temp_line[i] == temp_line[j]):
+                dup_cnt += 1
+    if min_cnt >= len(temp_line):
+        min_cnt = len(temp_line) - dup_cnt
 
 
 
@@ -68,5 +66,9 @@ def putLine(cur_num):
         temp_line.append(line[i])
         putLine(cur_num + 1)
         temp_line.pop()
-putLine(0)
-print(min_cnt)
+putLine(1)
+
+if min_cnt == 200:
+    print(0)
+else:
+    print(min_cnt)
