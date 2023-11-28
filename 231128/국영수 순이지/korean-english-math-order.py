@@ -7,7 +7,7 @@ class student:
         self.eng = eng
 
 arr=[]
-for _ in range(4):
+for _ in range(n):
     n,k,e,m = input().split()
     k,e,m = int(k),int(e),int(m)
     arr.append(student(n,k,e,m))
