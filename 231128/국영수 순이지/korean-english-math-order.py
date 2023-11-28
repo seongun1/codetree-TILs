@@ -12,6 +12,6 @@ for _ in range(4):
     k,m,e = int(k),int(m),int(e)
     arr.append(student(n,k,m,e))
 
-arr.sort(key =lambda x : (-x.kor,-x.math,-x.eng))
+arr.sort(key =lambda x : (-x.kor,-x.eng,-x.math))
 for a in arr:
     print(a.name,a.kor,a.math,a.eng)
