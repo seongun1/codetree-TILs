@@ -9,17 +9,18 @@ for i in string:
 ans = []
 max_val = 0
 
+
 def println():
     global max_val
 
     cnt = ans[0]
     for i in range(len(ans)-1):
-        temp = ''
-        temp += str(cnt)
-        temp += operand[i]
-        temp += str(ans[i+1])
-        
-        cnt = eval(temp) 
+        if operand[i] == '-':
+            cnt -= ans[i+1]
+        elif operand[i] == '+':
+            cnt += ans[i+1]
+        else:
+            cnt *= ans[i+1]
     
     max_val = max(max_val, cnt)
 
