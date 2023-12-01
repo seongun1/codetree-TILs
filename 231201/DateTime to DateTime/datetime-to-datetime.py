@@ -2,7 +2,11 @@ a,b,c= map(int,input().split())
 
 
 def is_when(a,b,c):
-    if a<= 11 and b<=11and c<11:
+    if a<11:
+        return -1
+    elif a ==11 and b<11:
+        return -1
+    elif a ==11 and b ==11 and c<11:
         return -1
     cnt =0
     d,h,m =11,11,11
