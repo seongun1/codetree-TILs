@@ -1,29 +1,38 @@
-import sys
-m1,d1,m2,d2 = map(int,input().split())
-a= input()
-num_of_days = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+m1,d1,m2,d2=tuple(map(int,input().split()))
+A = str(input())
 
-def cnt_date(m1,d1,m2,d2):
-    t1,t2 = 0,0
-    for i in range(1,m1):
-        t1 += num_of_days[m1]
-    t1 += d1
-    for i in range(1,m2):
-        t2 += num_of_days[m2]
-    t2 += d2
-    return t2 - t1
-arr=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-day = arr.index(a)
+# m1,d1,m2,d2 = 12, 14, 12, 29
+# A = 'Fri'
 
-day_left = cnt_date(m1,d1,m2,d2)-day
+# m1, d1, m2, d2 = 2, 5, 3, 9
+# A = 'Mon'
 
+# m1, d1, m2, d2 = 12, 11, 12, 20
+# A = 'Thu'
 
-if day_left>=0:
-    count = 1
-else:
-    count =0
-    print(count)
-    sys.exit(0)
+day=['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+idx = 0
 
-count += day_left //7
-print(count)
+for i in range(len(day)) :
+    if A == day[i] :
+        idx = i
+
+def total_days(m,d):
+    nums_of_day =[0,31,29,31,30,31,30,31,31,30,31,30,31]
+    total_days = d
+
+    for i in range(1, m) :
+        total_days += nums_of_day[i]
+
+    return total_days
+
+diff = total_days(m2, d2) - total_days(m1, d1) + 1
+cnt = 0
+week_of_day = 0
+
+for i in range(1, diff + 1) :
+    week_of_day = (week_of_day + 1) % 7
+
+    if day[week_of_day - 1] == A : 
+        cnt += 1
+print(cnt)
