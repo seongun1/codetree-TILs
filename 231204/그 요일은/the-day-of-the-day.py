@@ -1,3 +1,4 @@
+import sys
 m1,d1,m2,d2 = map(int,input().split())
 a= input()
 num_of_days = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -15,12 +16,14 @@ arr=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 day = arr.index(a)
 
 day_left = cnt_date(m1,d1,m2,d2)-day
-print(day,day_left)
+
 
 if day_left>=0:
     count = 1
 else:
     count =0
+    print(count)
+    sys.exit(0)
 
 count += day_left //7
 print(count)
