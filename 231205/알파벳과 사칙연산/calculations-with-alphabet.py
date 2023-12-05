@@ -37,7 +37,7 @@ def println():
 
 
 def choose(cur):
-    if cur == len(alpha):
+    if cur == 6:
         println()
         return
     
