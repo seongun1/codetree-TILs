@@ -36,17 +36,18 @@ def println():
     max_val = max(max_val, cnt)
 
 
-def choose(cur):
-    if cur == 6:
+def choose(cur, used):
+    if cur == len(unique_alpha):
         println()
         return
     
-    for i in range(1,5):
-        ans.append(i)
-        choose(cur+1)
-        ans.pop()
-    
-    return
+    for i in range(1, 5):
+        if not used[cur]:
+            ans.append(i)
+            used[cur] = True
+            choose(cur + 1, used)
+            ans.pop()
+            used[cur] = False
 
-choose(0)
+choose(0, [False] * len(unique_alpha))
 print(max_val)
