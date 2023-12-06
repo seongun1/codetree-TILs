@@ -1,4 +1,6 @@
 # 8방향중 쭉 이동 가능한데, 자신의 값보다 큰 값으로 이동을 최대한 많이 이동
+import sys
+sys.setrecursionlimit(10**7)
 
 n = int(input())
 
