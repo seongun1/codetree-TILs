@@ -7,13 +7,13 @@ for _ in range(n):
     x,dis = input().split()
     x = int(x)
     if dis == 'L':
-        for i in range(point-1,point-x-1,-1):
+        for i in range(point,point-x,-1):
             arr[i] = 1 #white
-        point -= x
+        point =point-x+1
     elif dis == 'R':
         for i in range(point,point+x):
             arr[i] = 2 #black
-        point += x
+        point =point + x-1
            
 white,black =0,0
 for a in arr:
