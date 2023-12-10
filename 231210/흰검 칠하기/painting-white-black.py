@@ -25,8 +25,8 @@ for i in range(len(arr_black)):
         grey +=1
         arr_black[i] =0
         arr_white[i] =0
-    elif arr_black[i] >=1 and arr[i] == 2:
+    elif arr[i] == 2:
         black +=1
-    elif arr_white[i] >= 1 and arr[i] ==1:
+    elif arr[i] ==1:
         white +=1
 print(white,black,grey)
