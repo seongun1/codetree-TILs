@@ -13,7 +13,7 @@ for _ in range(n):
                 continue
             arr[i] =1
             arr_grey[i] +=1
-            if arr_grey[i] ==6:
+            if arr_grey[i] == 22:
                 grey +=1
                 arr[i] = -1
         point = point - x +1
@@ -21,9 +21,9 @@ for _ in range(n):
         for i in range(point,point+x):
             if arr[i] == -1:
                 continue
-            arr[i] =2
-            arr_grey[i] += 2
-            if arr_grey[i] == 6:
+            arr[i] =10
+            arr_grey[i] += 10
+            if arr_grey[i] == 22:
                 grey +=1
                 arr[i] =-1
         point = point +x -1
@@ -32,6 +32,6 @@ white,black= 0,0
 for i in range(len(arr)):
     if arr[i] ==1:
         white +=1
-    elif arr[i] ==2:
+    elif arr[i] ==10:
         black +=1
 print(white,black,grey)
