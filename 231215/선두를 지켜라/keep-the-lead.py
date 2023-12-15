@@ -20,4 +20,5 @@ for i in range(1,time):
         cnt +=1
     elif a[i-1] <= b[i-1] and a[i] > b[i]:
         cnt +=1
-print(cnt-1)
+cnt -=1
+print(cnt if cnt >0 else 0)
