@@ -1,6 +1,6 @@
 n,m = map(int,input().split())
-a= [0 for _ in range(1000)]
-b=[0 for _ in range(1000)]
+a= [0 for _ in range(1000000)]
+b=[0 for _ in range(1000000)]
 
 def cal_range(n,a):
     start =0 #시작점
