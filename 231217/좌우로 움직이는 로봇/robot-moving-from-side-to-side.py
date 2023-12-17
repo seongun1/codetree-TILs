@@ -42,9 +42,10 @@ def print_arr(a,length):
     for i in range(length):
         print(a[i],end=' ')
     print()
+
 cnt =0
 
-for i in range(1,max(time_a,time_b)):
+for i in range(2,max(time_a,time_b)):
     if a[i-1] != b[i-1] and a[i] == b[i]:
         cnt +=1
 print(cnt)
