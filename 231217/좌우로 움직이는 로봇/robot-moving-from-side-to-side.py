@@ -1,5 +1,5 @@
 n,m = map(int,input().split())
-point =1000000
+point =1000001
 
 a=[point] * point
 b=[point] * point
