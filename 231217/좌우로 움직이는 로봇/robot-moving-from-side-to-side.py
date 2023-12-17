@@ -38,7 +38,6 @@ elif time_a<time_b:
     for i in range(time_a,time_b):
         a[i] =a[time_a-1]
 
-print(time_a,time_b)
 def print_arr(a,length):
     for i in range(length):
         print(a[i],end=' ')
