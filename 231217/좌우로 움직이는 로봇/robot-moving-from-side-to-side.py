@@ -9,6 +9,7 @@ for _ in range(n):
     t= int(t)
     for i in range(time_a,t+time_a):
         a[i] = a[i-1] + (1 if d=='R' else -1)
+    time_a +=t
 
 
 time_b =1
@@ -17,7 +18,7 @@ for _ in range(m):
     t = int(t)
     for i in range(time_b,t+time_b):
         b[i] = b[i-1] + (1 if d =='R' else -1)
-
+    time_b +=t
 
 if time_a>time_b:
     for i in range(time_b,time_a):
