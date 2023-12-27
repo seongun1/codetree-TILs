@@ -9,12 +9,12 @@ r,c,d = input().split()
 r=int(r)-1
 c=int(c)-1
 mapper={'U':0,'D':3,'R':1,'L':2}
-dire = mapper[d]
-while (t>0):
+dire = int(mapper[d])
+
+for i in range(t):
     nr,nc = r+dy[dire],c+dx[dire]
     if not in_range(nr,nc):
-        t-=1
-        dire = 3-dire
-    t-=1
-    r,c=r+dy[dire],c+dx[dire]
+        dire = 3- dire
+    else:
+        r,c = nr,nc
 print(r+1,c+1)
