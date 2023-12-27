@@ -5,9 +5,8 @@ for _ in range(n):
     a.append(list(map(int,input().split())))
 for _ in range(m):
     b.append(list(map(int,input().split())))
-tmp=0 #총 걸린 시간
-for i in a:
-    tmp += i[1]
+tmp=1000000 #총 걸린 시간
+
 arr_a= [0 for i in range(tmp+1)]
 arr_b= [0 for i in range(tmp+1)]
 time_a =1
@@ -33,7 +32,7 @@ for i in range(1,tmp+1):
         arr[i] = 2
     else:
         arr[i] = 0
-for i in range(1,tmp+1):
+for i in range(2,tmp+1):
     if arr[i-1] != arr[i]:
         cnt +=1
 print(cnt)
