@@ -6,7 +6,6 @@ for _ in range(T):
     virus.append(list(map(int,input().split())))
 virus.sort(key = lambda x : x[0])
 arr[p] = 1
-print(virus)
 for v in virus: #서로 악수를 하는 경우
     if arr[v[1]] == 1 and arr_chance[v[1]] > 0: #감염됐고, 감염시킬수 있는 횟수가 0 이상인 경우
         arr[v[2]] =1
