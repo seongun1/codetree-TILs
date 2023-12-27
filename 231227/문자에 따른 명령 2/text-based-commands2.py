@@ -3,8 +3,9 @@ char=  input()
 char=list(char)
 
 dire = 0
-dx= [0,1,0,-1]
-dy = [-1,0,1,0]
+#북 동 남 서
+dx= [0,1,0,-1] 
+dy = [1,0,-1,0]
 for c in char:
     if c =='L':
         dire = (dire-1+4) %4
