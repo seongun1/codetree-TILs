@@ -1,6 +1,7 @@
+import sys
 n=int(input())
 arr=list(map(int,input().split()))
-min_num =100000
+min_num =1sys.maxsize
 for i in range(n):
     tmp=0
     for j in range(n):
