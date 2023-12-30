@@ -1,6 +1,6 @@
 n=int(input())
 arr=list(map(int,input().split()))
-min_num =1001
+min_num =10001
 for i in range(n):
     tmp=0
     for j in range(n):
