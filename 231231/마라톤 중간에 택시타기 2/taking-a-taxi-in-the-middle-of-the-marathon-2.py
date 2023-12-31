@@ -3,11 +3,7 @@ n=int(input())
 def cal_distance (x1,y1,x2,y2):
     return abs(x1-x2) + abs(y1-y2)
 
-a=[]
-for _ in range(n):
-    p,q = map(int,input().split())
-    p,q = p+1000,q+1000
-    a.append([p,q])
+a=[list(map(int,input().split())) for _ in range(n)]
 min_dis = sys.maxsize
 cnt =1
 while (cnt <len(a)-1):
