@@ -1,6 +1,6 @@
 n=int(input())
 arr =[int(input()) for _ in range(n)]
-max_ans =0
+max_ans =-1
 ans=-1
 for i in range(n):
     for j in range(i+1,n):
