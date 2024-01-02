@@ -1,8 +1,9 @@
+import sys
 n,s =map(int,input().split())
 arr=list(map(int,input().split()))
-ans =999
+ans =sys.maxsize
 for i in range(n):
     for j in range(i+1,n):
-        if ans > sum(arr) - (arr[i] + arr[j]) - s:
-            ans = sum(arr) - (arr[i] + arr[j]) - s
+        if ans > abs(sum(arr) - (arr[i] + arr[j]) - s):
+            ans = abs(sum(arr) - (arr[i] + arr[j]) - s)
 print(ans)
