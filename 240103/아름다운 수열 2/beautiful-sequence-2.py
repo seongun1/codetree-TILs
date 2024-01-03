@@ -14,6 +14,5 @@ for i in range(n-m+1):
                 break
     if cnt == m:
         ans +=1
-        print(i)
 
 print(ans)
