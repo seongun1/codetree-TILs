@@ -3,6 +3,17 @@ arr=list(map(int,input().split()))
 num1,num2,num3=0,0,0
 ans =0
 min_ans = sys.maxsize
+a= arr[0]
+flag = True
+for i in range(len(arr)):
+    if a != arr[i]:
+        flag = False
+        break
+if flag:
+    print(-1)
+    sys.exit()
+
+
 for i in range(5):
     for j in range(i+1,5):
         num1 = arr[i] + arr[j]
@@ -21,7 +32,5 @@ for i in range(5):
                 tmp.sort()
                 ans = tmp[2] - tmp[0]
                 min_ans =min(ans,min_ans)
-            if len(tmp) == 0:
-                print(-1)
-                sys.exit()
+            
 print(min_ans)
