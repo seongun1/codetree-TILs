@@ -20,7 +20,7 @@ for i in range(n):
             cnt +=1
             money -=arr[j]
         else:
-            continue
+            break
     max_cnt = max(cnt,max_cnt)
     arr[i] *=2
 print(max_cnt)
