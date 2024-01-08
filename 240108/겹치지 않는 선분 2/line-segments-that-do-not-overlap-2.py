@@ -13,7 +13,7 @@ for i in range(n):
 	# i번째 선분이 다른 선분과 겹치지 않는지 확인합니다.
 	overlap = False
 	
-	for j in range(i,n):
+	for j in range(n):
 		# 자기 자신은 제외합니다.
 		if j == i:
 			continue
