@@ -14,7 +14,7 @@ for i in range(n):
             if tmp[0][0] != tmp[1][0] and tmp[0][0] != tmp[2][0] and tmp[1][0] != tmp[2][0]:
                 tmp=[]
                 continue
-            area = abs((tmp[0][1]*tmp[1][1] + tmp[1][0]*tmp[2][1] + tmp[2][0]*tmp[0][1]) - (tmp[1][0]*tmp[0][1] + tmp[2][0]*tmp[1][1] + tmp[0][0]*tmp[2][1]))
+            area = abs((tmp[0][0]*tmp[1][1] + tmp[1][0]*tmp[2][1] + tmp[2][0]*tmp[0][1]) - (tmp[1][0]*tmp[0][1] + tmp[2][0]*tmp[1][1] + tmp[0][0]*tmp[2][1]))
             max_area  = max(max_area,area)
             tmp=[]
 print(max_area)
