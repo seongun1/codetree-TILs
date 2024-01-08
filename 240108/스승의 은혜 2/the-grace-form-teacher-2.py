@@ -3,6 +3,7 @@ n,b = map(int,input().split())
 arr=[int(input()) for _ in range(n)]
 max_cnt =0
 money =b
+arr.sort()
 for i in range(n):
     arr[i] //=2
     money =b
