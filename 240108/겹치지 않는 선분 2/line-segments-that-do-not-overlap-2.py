@@ -1,35 +1,33 @@
-n=int(input())
-arr=[list(map(int,input().split())) for _ in range(n)]
-cnt = [True] * (n)
+n = int(input())
 
+lines = []
+for _ in range(n):
+    x1, x2 = map(int, input().split())
+    lines.append(((x1, 0) , (x2, 1)))
+
+cross = 0
 for i in range(n):
     for j in range(n):
-        x1,x2 = arr[i]
-        x3,x4 = arr[j]
-        if i==j:
+        # 자기 자신은 제외
+        if j == i:
             continue
-        if x1<x2 and x3 > x4:
-            cnt[i] =False
-            cnt[j] =False
-        if (x1 < x2 and x3 < x4) : #기울기 +,+
-            if x3 < x1 < x2 < x4 or x1<x3 <x4 <x2:
-                cnt[i] = False
-                cnt[j] = False
-        elif (x1 > x2 and x3 >x4): #기울기 -,-
-            if x4 < x2 <= x3 <x1 or x2 < x4 <= x1 <x3:
-                cnt[i] =False
-                cnt[j] =False
-        elif(x1 < x2 and x3 > x4): #기울기 +,-
-            if x1 < x3 and x4 < x2:
-                cnt[i] = False
-                cnt[j] = False  
-        elif (x2 < x1 and x3 < x4): #기울기 -,+
-            if x1 > x3 and x2 <x4 :
-                cnt[i] =False
-                cnt[j] =False
 
-ans=0
-for i in range(len(cnt)):
-    if cnt[i] == True:
-        ans +=1
-print(ans)
+        # 첫번째 선분과 두번째 선분
+        line1 = lines[i]
+        line2 = lines[j]
+
+        # 첫번째 선분의 시작점 x좌표가 두번째 선분의 시작점 x좌표보다 작고
+        # 첫번째 선분의 끝점 x좌표가 두번째 선분의 끝점 x좌표보다 크면
+        # 교차하므로 교차하는 선분 2개 증가
+        if (line1[0][0] < line2[0][0]) and (line1[1][0] > line2[1][0]):
+            cross += 2
+
+# 선분의 개수 중 교차하는 선분 뺀 값
+ans = n - cross
+
+# 서로 교차하는 선분이 2개 이상이면 뺀 값이 음수가 나올 수 있으므로 
+# ans가 음수면 교차하지 않는 선분이 없다는 의미로 0 출력
+if ans < 0:
+    print(0)
+else:
+    print(ans)
