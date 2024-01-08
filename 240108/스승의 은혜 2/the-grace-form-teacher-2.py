@@ -1,7 +1,6 @@
 n,b = map(int,input().split())
 
 arr=[int(input()) for _ in range(n)]
-arr.sort()
 max_cnt =0
 money =b
 for i in range(n):
@@ -20,7 +19,7 @@ for i in range(n):
             cnt +=1
             money -=arr[j]
         else:
-            break
+            continue
     max_cnt = max(cnt,max_cnt)
     arr[i] *=2
 print(max_cnt)
