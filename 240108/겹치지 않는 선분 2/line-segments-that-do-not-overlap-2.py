@@ -8,7 +8,9 @@ for i in range(n):
         x3,x4 = arr[j]
         if i==j:
             continue
-        
+        if x1<x2 and x3 > x4:
+            cnt[i] =False
+            cnt[j] =False
         if (x1 < x2 and x3 < x4) : #기울기 +,+
             if x3 < x1 < x2 < x4 or x1<x3 <x4 <x2:
                 cnt[i] = False
