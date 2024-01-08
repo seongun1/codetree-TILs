@@ -29,6 +29,5 @@ for i in range(n):
 ans=0
 for i in range(len(cnt)):
     if cnt[i] == True:
-        print(i)
         ans +=1
 print(ans)
