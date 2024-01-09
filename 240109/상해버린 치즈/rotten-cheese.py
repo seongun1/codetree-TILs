@@ -22,7 +22,7 @@ for i in range(s):
         p_j,m_j,t_j = arr_d[j]
         if p_i == p_j and t_j < t_i: # 아프기 전의 먹은 치즈들(의심가는 치즈)을 다 tmp 배열에 넣는다.
             tmp.append([p_j,m_j,t_j])
-if len(tmp)>1:
+if s>1:
     ans =[] # 겹치는 치즈를 구하는 배열
     for s in range(len(tmp)):
         a1,b1,c1 = tmp[s]
@@ -34,7 +34,9 @@ if len(tmp)>1:
                 ans.append([a1,b1,c1])
                 break
 else:
-    ans = tmp
+    ans =tmp.copy()
+
+
 for t in range(len(ans)): #의심가는 치즈 중 하나만 상했을때를 가정 , 최대 약의 갯수를 구한다.
     a,b,c = ans[t] #만약 이것이 상했다면?
     for k in range(d):
