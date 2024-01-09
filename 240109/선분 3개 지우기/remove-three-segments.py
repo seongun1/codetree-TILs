@@ -19,11 +19,7 @@ for i in range(n):
                 a,b = line[paint]
                 for s in range(a,b+1):
                     arr[s] +=1
-            for a in arr:
-                if a>1:
-                    flag = False
-                    break
-            if flag:
+            if check(arr):
                 cnt +=1
             arr = [0] * (101)
             
