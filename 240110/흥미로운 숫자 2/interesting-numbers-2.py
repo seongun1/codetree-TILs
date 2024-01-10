@@ -15,7 +15,7 @@ for i in range(x,y+1):
             dict_arr[t] =1
     arr =list(dict_arr.values())
     arr.sort()
-    if len(arr) == 2 and (arr[1] == len(tmp) -1 and arr[0] == 1):
+    if len(arr) == 2 and (arr[1] == len(tmp) -1):
         cnt +=1    
     
 print(cnt)
