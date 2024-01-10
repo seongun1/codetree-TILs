@@ -1,7 +1,7 @@
 t,a,b =map(int,input().split())
 #d1이 d2보다 같거나 작은 경우 x= k는 특별한 위치
-s=[0] * (b+1)
-n=[0] * (b+1)
+s=[0] * (1001)
+n=[0] * (1001)
 for _ in range(t):
     char , idx = input().split()
     idx = int(idx)
