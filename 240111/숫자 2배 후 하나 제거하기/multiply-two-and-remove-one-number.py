@@ -1,6 +1,7 @@
+import sys
 n=int(input())
 arr=list(map(int,input().split()))
-min_ans = 999
+min_ans = sys.maxsize
 for i in range(n):
     arr[i] *=2
     for j in range(n):
