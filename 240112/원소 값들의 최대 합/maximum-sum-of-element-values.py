@@ -9,11 +9,9 @@ for i in range(1,n+1):
     a = arr[i]
     ans +=a
     for j in range(m-1):
-        b= arr[a]
-        arr[a] = a
-        ans += b
-        a=b
-    
+        b = arr[a]
+        ans +=b
+        a =b
     max_ans = max(ans,max_ans)
 
     for k in range(1,n+1):
