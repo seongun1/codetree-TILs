@@ -6,7 +6,7 @@ cnt =0
 tmp = set()
 for i in range(3):
     if (arr[i][0] == arr[i][1] and arr[i][0] != arr[i][2]) or (arr[i][0] == arr[i][2] and arr[i][0] != arr[i][1]) or (arr[i][1] == arr[i][2] and arr[i][1] != arr[i][0]):
-        tmp.add((arr[i][0],arr[i][1],arr[i][0]))
+        tmp.add((arr[i][0],arr[i][1],arr[i][2]))
 for j in range(3):
     if (arr[0][j] == arr[1][j] and arr[0][j] != arr[2][j]) or (arr[0][j] == arr[2][j] and arr[0][j] != arr[1][j]) or (arr[1][j] == arr[2][j] and arr[1][j] != arr[0][j]):
         tmp.add((arr[0][j],arr[1][j],arr[2][j]))
