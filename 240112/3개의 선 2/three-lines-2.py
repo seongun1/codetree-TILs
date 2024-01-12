@@ -1,21 +1,39 @@
 from sys import stdin
 n = int(stdin.readline())
-base=[[] for _ in range(n)]
-for i in range(n):
-    base[i] = list(map(int, stdin.readline().split()))
 
-def check():
-    xys = [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
-    for i in range(0, 11):
-        for j in range(0, 11):
-            for k in range(0, 11): #축 3개의 값
-                for xy1, xy2, xy3 in xys: #각 축이 x인지 y인지
-                    stoppoint = True
-                    for point in base:
-                        if point[xy1] == i or point[xy2] == j or point[xy3] == k:
-                            continue
-                        stoppoint = False
-                    if stoppoint:
-                        return 1
-    return 0
-print(check())
+arr=[list(map(int,input().split())) for _ in range(n)]
+
+cnt =0
+#x축에 평행한 직선 3 -> 2 -> 1 -> 0 개의 순으로 진행
+for i in range(11):
+    for j in range(11):
+        for k in range(11):
+            flag = True
+            for a ,b in arr:
+                if a == i or a== j or a == k:
+                    continue
+                flag = False
+            if flag: 
+                cnt =1
+            flag = True
+            for a, b in arr:
+                if a ==i or a ==j or b ==k:
+                    continue
+                flag =False
+            if flag:
+                cnt =1
+            flag = True
+            for a,b in arr:
+                if a == i or b==j or b==k:
+                    continue
+                flag =False
+            if flag:
+                cnt =1
+            flag =True
+            for a,b in arr:
+                if b==i or b == j or b==k:
+                    continue
+                flag = False
+            if flag:
+                cnt =1
+print(cnt)
