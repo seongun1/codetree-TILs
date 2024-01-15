@@ -1,5 +1,6 @@
 n,k = map(int,input().split())
 arr=[int(input()) for _ in range(n)]
+arr.sort()
 ans =[]
 for a in arr:
     if len(ans) ==0:
