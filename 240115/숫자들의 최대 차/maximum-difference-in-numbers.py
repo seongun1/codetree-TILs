@@ -1,16 +1,21 @@
 n,k = map(int,input().split())
 arr=[int(input()) for _ in range(n)]
 arr.sort()
-ans =[]
-for a in arr:
-    if len(ans) ==0:
-        ans.append(a)
-    elif min(ans) <= a <= max(ans):
-        ans.append(a)
-    elif a < min(ans):
-        if  max(ans)-a <=k:
-            ans.append(a)
-    elif a > max(ans):
-        if a - min(ans) <= k:
-            ans.append(a)
-print(len(ans))
+max_ans_len = 0
+for i in range(n):
+    start = arr[i]
+    ans =[]
+    ans.append(start)
+    for j in range(n):
+        if i==j:
+            continue
+        if min(ans) <= arr[j] <= max(ans):
+            ans.append(arr[j])
+        elif arr[j] < min(ans):
+            if max(ans) - arr[j] <=k:
+                ans.append(arr[j])
+        elif max(ans) < arr[j]:
+            if arr[j] - min(ans) <= k:
+                ans.append(arr[j])
+    max_ans_len = max(len(ans),max_ans_len)
+print(max_ans_len)
