@@ -7,9 +7,9 @@ for a in arr:
     elif min(ans) <= a <= max(ans):
         ans.append(a)
     elif a < min(ans):
-        if  max(ans)-a <=3:
+        if  max(ans)-a <=k:
             ans.append(a)
     elif a > max(ans):
-        if a - min(ans) <= 3:
+        if a - min(ans) <= k:
             ans.append(a)
 print(len(ans))
