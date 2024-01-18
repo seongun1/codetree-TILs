@@ -16,7 +16,8 @@ for k in range(n):
 ans =0
 count =0
 for index,bomb_count in enumerate(tmp):
-    if count < bomb_count:
+    if count <= bomb_count:
         ans = index
         count = bomb_count
+
 print(ans)
