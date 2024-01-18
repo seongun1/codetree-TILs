@@ -2,7 +2,7 @@ n,k = map(int,input().split())
 arr=[int(input()) for _ in range(n)]
 
 tmp = [0 for i in range(n+1)]
-existed = [False for _ in range(n)]
+existed = [False for _ in range(n+1)]
 
 for i in range(n):
     bomb = arr[i]
