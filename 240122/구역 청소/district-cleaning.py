@@ -1,15 +1,13 @@
 a,b = map(int,input().split())
-c,d = map(int,input().split())
+c,d =map(int,input().split())
 
-def is_overlap(a,b,c,d):
-    if b<c or d<a: #겹치지 않았음
-        return False
-    return True #겹쳤음
-
-if is_overlap(a,b,c,d):
-    if d < b:
-        print (abs(b-c))
-    else:
-        print(d-a)
-else:
-    print((b-a) + (d-c))
+arr=[0] * 101
+for i in range(a,b):
+    arr[i] = 1
+for k in range(c,d):
+    arr[k] = 1
+ans =0
+for a in arr:
+    if a ==1:
+        ans +=1
+print(ans)
