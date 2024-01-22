@@ -7,6 +7,9 @@ def is_overlap(a,b,c,d):
     return True #겹쳤음
 
 if is_overlap(a,b,c,d):
-    print (abs(b-c))
+    if d < b:
+        print (abs(b-c))
+    else:
+        print(d-a)
 else:
     print((b-a) + (d-c))
