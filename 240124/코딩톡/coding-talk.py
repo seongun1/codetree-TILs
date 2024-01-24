@@ -10,6 +10,10 @@ for i in range(p,m+1):
     c,u = arr[i]
     arr_people[ord(c) - ord('A')+1] = True
 
+for i in range(p-1,0,-1):
+    if arr[i][1] == target[1]:
+        arr_people[ord(arr[i][0]) - ord('A') +1] = True
+
 for i in range(1,n+1):
     if not arr_people[i]:
         print(chr(i+64),end=' ')
