@@ -14,6 +14,6 @@ while (1):
         a =0
     speed +=a
     
-    if cnt >= x:
+    if cnt > x:
         break
 print(time)
