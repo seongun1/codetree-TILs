@@ -1,19 +1,17 @@
 x = int(input())
-cnt =0
-time =0
+
 speed =1
-a=1
-flag = False
-while (1):
+dist =0
+time =0
+while (dist < x):
+    dist += speed
+    if (x - dist) >= (speed+1) * (speed +2) /2:
+        speed +=1
+    elif (x - dist)  >= (speed) * (speed+1) /2:
+        speed = speed
+    elif x - dist >= (speed) * (speed -1) /2:
+        speed -=1
+    if speed <=1:
+        speed =1
     time +=1
-    cnt += speed
-    if cnt  >= x//2 and not flag:
-        a =-1
-        flag = True
-    if speed ==1 and flag:
-        a =0
-    speed +=a
-    
-    if cnt > x:
-        break
 print(time)
