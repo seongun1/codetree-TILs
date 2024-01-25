@@ -12,12 +12,30 @@ def win_cnt(a,b):
     if a==3 and b ==2:
         win +=1
     return win
-max_cnt = 0
+
+
+def turn_val():
+    for i in range(len(arr)):
+        arr[i][0],arr[i][1] = (arr[i][0] %3) +1 , (arr[i][1] %3) +1
+
+def change_val():
+    for i in range(len(arr)):
+        arr[i][0],arr[i][1] = arr[i][1],arr[i][0]
+max_cnt =0
 for _ in range(3):
     cnt =0
     for a,b in arr:
         cnt = win_cnt(a,b)
-        a,b = (a%3) +1, (b%3) +1
+    turn_val()
+    max_cnt = max(cnt,max_cnt)
+    win =0
+turn_val()
+change_val()
+for _ in range(3):
+    cnt =0
+    for a,b in arr:
+        cnt = win_cnt(a,b)
+    turn_val()
     max_cnt = max(cnt,max_cnt)
     win =0
 
