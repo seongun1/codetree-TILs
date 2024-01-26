@@ -1,12 +1,8 @@
 n = int(input())
 
 d = [0] * 1001
-
-
-for i in range(2,n+1):
-    d[i] += 1
-    d[i + 2] += 1
-    d[i + 3] += 1
-#print(d)
-
-print(d[n]%10007)
+d[2] = 1
+d[3] = 1
+for i in range(4,1001):
+    d[i] = d[i-2] + d[i-3] 
+print(d[n] % 10007)
