@@ -16,8 +16,15 @@ def cnt_min_dist(n):
 
 dist =0
 index_i,index_j = 0,0
-flag = False
+flag_last = False
+first = True
+first_dist = 0
+fflag = False
+flag =False
 for i in range(n):
+    if first and arr[i] == '1':
+        first_dist = i
+        first = False
     if arr[i] == '1':
         for j in range(i+1,n):
             if arr[j] =='1':
@@ -29,11 +36,18 @@ for i in range(n):
                 if (j-i) * 2> dist:
                     dist = j-i
                     index_i,index_j = i,j
-                    flag =True
+                    flag_last =True
                 break
-if not flag:
+
+if first_dist*2 > dist:
+    fflag = True
+
+if not flag and not fflag:
     arr[(index_i + index_j) //2] ='1'
-else:
+elif flag and not fflag:
     arr[n-1] ='1'
+elif fflag:
+    arr[0] = '1'
+
 
 print(cnt_min_dist(n))
