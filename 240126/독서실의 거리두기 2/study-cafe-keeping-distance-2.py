@@ -36,7 +36,7 @@ for i in range(n):
                 if (j-i) * 2> dist:
                     dist = j-i
                     index_i,index_j = i,j
-                    flag_last =True
+                    flag =True
                 break
 
 if first_dist*2 > dist:
@@ -48,6 +48,5 @@ elif flag and not fflag:
     arr[n-1] ='1'
 elif fflag:
     arr[0] = '1'
-
 
 print(cnt_min_dist(n))
