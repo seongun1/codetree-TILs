@@ -12,7 +12,7 @@ while (1):
             if abs(i-arr[i]) > abs(i+1 - arr[i]):
                 arr[i],arr[i+1] = arr[i+1],arr[i]
             else:
-                arr[i],arr[i-1] < arr[i-1],arr[i]
+                arr[i],arr[i-1] = arr[i-1],arr[i]
     if flag:
         break
 print(cnt)
