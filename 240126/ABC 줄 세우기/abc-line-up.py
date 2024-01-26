@@ -3,16 +3,11 @@ arr= list(input().split())
 for i in range(n):
     arr[i] = int(ord(arr[i]) - ord('A'))
 cnt = 0
-while (1):
-    flag = True
-    for i in range(n):
-        if arr[i] != i:
-            flag =False
+for i in range(1,n):
+    for j in range(i,0,-1):
+        if arr[j-1] > arr[j]:
+            arr[j-1],arr[j] = arr[j],arr[j-1]
             cnt +=1
-            if abs((i-1)-arr[i]) > abs(i+1 - arr[i]):
-                arr[i],arr[i+1] = arr[i+1],arr[i]
-            else:
-                arr[i],arr[i-1] = arr[i-1],arr[i]
-    if flag:
-        break
+        else:
+            break
 print(cnt)
