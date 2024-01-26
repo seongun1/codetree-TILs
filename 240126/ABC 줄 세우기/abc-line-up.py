@@ -9,7 +9,7 @@ while (1):
         if arr[i] != i:
             flag =False
             cnt +=1
-            if abs(i-arr[i]) > abs(i+1 - arr[i]):
+            if abs((i-1)-arr[i]) > abs(i+1 - arr[i]):
                 arr[i],arr[i+1] = arr[i+1],arr[i]
             else:
                 arr[i],arr[i-1] = arr[i-1],arr[i]
