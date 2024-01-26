@@ -5,37 +5,49 @@ arr = [
     for _ in range(n)
 ]
 
-ans = []
+visited =[
+    [False for _ in range(n)]
+    for _ in range(n)
+]
+
+cnt = 0
+ans = list()
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
+def can_go(x,y):
+    if not in_range(x,y):
+        return False
+    
+    if visited[x][y] or arr[x][y] == 0:
+        return False
+    
+    return True
+
+dxs,dys = [-1,1,0,0], [0,0,-1,1]
+
 def dfs(x,y):
     global cnt
 
-    if not in_range(x,y):
-        return False
+    for dx, dy in zip(dxs, dys):
+        next_x ,next_y = x + dx, y + dy
 
-    if arr[x][y] == 1:
-        arr[x][y] = 2
-        cnt += 1
-        dfs(x-1,y)
-        dfs(x+1,y)
-        dfs(x,y-1)
-        dfs(x,y+1)
-        return True
+        if can_go(next_x, next_y):
+            visited[next_x][next_y] = True
+            cnt += 1
+            dfs(next_x,next_y)
 
-    return False
-
-res = 0
 for i in range(n):
     for j in range(n):
-        cnt = 0
-        if dfs(i,j):
-            res += 1
+        if can_go(i,j):
+            visited[i][j] = True
+            cnt = 1
+            dfs(i,j)
+
             ans.append(cnt)
 
-print(res)
+print(len(ans))
 ans.sort()
 for i in ans:
     print(i)
