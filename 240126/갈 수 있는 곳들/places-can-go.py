@@ -10,14 +10,14 @@ arr = [
 ]
 
 visited = [
-    [0 for _ in range(n)]
+    [False for _ in range(n)]
     for _ in range(n)
 ]
 
 q = deque()
 for i in range(k):
     x,y = tuple(map(int,input().split()))
-    visited[x-1][y-1] = 1
+    visited[x-1][y-1] = True
     q.append((x-1,y-1))
 
 def in_range(x,y):
@@ -26,7 +26,7 @@ def in_range(x,y):
 def can_go(x,y):
     if not in_range(x,y):
         return False
-    if visited[x][y] == 1 or arr[x][y]:
+    if visited[x][y] or arr[x][y]:
         return False
     return True
 
@@ -37,7 +37,7 @@ def bfs():
             next_x ,next_y = x + dx, y + dy
 
             if can_go(next_x, next_y):
-                visited[next_x][next_y] = 1
+                visited[next_x][next_y] = True
                 q.append((next_x, next_y))
 
 
