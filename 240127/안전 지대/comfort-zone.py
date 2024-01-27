@@ -51,7 +51,7 @@ for k in range(1,101):
     
     max_safe_cnt.append((res,k))
 max_safe_cnt.sort(key = lambda x : (-x[0], x[1]))
-print(max_safe_cnt[0][0],max_safe_cnt[0][1])
+print(max_safe_cnt[0][1], max_safe_cnt[0][0])
 
 # def dfs(x,y,k):
 #     if not in_range(x,y):
