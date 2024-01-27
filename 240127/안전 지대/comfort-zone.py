@@ -13,10 +13,10 @@ dxs,dys = [-1,1,0,0], [0,0,-1,1]
 def in_range(x,y):
     return 0<=x<n and 0<=y<m
     
-visited = [
-    [False for _ in range(m)]
-    for _ in range(n)
-]
+# visited = [
+#     [False for _ in range(m)]
+#     for _ in range(n)
+# ]
 
 max_safe_cnt = [] # (영역크기, k) 저장
 
