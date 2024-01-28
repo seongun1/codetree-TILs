@@ -1,38 +1,36 @@
-import sys
+from itertools import combinations
+# 점 m개를 적절히 선택하여 가장 먼 두 점 사이의 거리가 최소가 되었을 때
+
+def dist_(x1,y1,x2,y2):
+    return ((x1-x2) ** 2 + (y1 - y2) ** 2) 
+
+# 그때의 최소 거리에 제곱한 값을 출력합니다
 
 n,m = map(int,input().split())
 
-arr = [
-    tuple(map(int,input().split()))
-    for _ in range(n)
-]
-def getDist(a,b):
-    x1,y1 = a
-    x2,y2 = b
-    return (x2-x1) ** 2 + (y2-y1) ** 2
+# m 개 선택
 
-min_val = sys.maxsize
-ans = []
+# m 개 중 2 개 선택
 
-def choose(idx, cnt):
-    global min_val
+point_set = []
 
-    if cnt == m:
-        max_val = -sys.maxsize
-        for i, val1 in enumerate(ans):
-            for j, val2 in enumerate(ans):
-                if i != j:
-                    max_val = max(max_val, getDist(val1, val2))
+for _ in range(n):
+    x,y = map(int,input().split())
+    point_set.append((x,y))
 
-        min_val = min(min_val, max_val)
-        return
-    if idx == n:
-        return
+m_set = list(combinations(point_set,m))
 
-    ans.append(arr[cnt])
-    choose(idx+1,cnt+1)
-    ans.pop()
-    choose(idx+1,cnt)
+min_val = float('inf')
 
-choose(0,0)
-print(min_val)
+
+for points in m_set:
+    max_val = -float('inf')
+    two_point = list(combinations(points,2))
+    for i in two_point:
+        check_dist = dist_(i[0][0],i[0][1],i[1][0],i[1][1])
+        max_val = max(max_val,check_dist)
+    
+    min_val = min(max_val,min_val)
+        
+
+print(int(min_val))
