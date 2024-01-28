@@ -2,18 +2,17 @@ import sys
 
 n,m = map(int,input().split())
 
-min_val = sys.maxsize
-
 arr = [
     tuple(map(int,input().split()))
     for _ in range(n)
 ]
-ans = list()
-
 def getDist(a,b):
-    x1, y1 = a
-    x2, y2 = b
+    x1,y1 = a
+    x2,y2 = b
     return (x2-x1) ** 2 + (y2-y1) ** 2
+
+min_val = sys.maxsize
+ans = []
 
 def choose(idx, cnt):
     global min_val
