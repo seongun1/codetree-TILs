@@ -40,24 +40,28 @@ def totalDist():
 
 visited = [False for _ in range(len(tmp))]
 
-def choose(cnt):
+def choose(idx, cnt):
     global min_val
 
     if cnt == 3:
         min_val = min(min_val, totalDist())
         return
 
-    # if idx == len(tmp):
-    #     return
+    if idx == len(tmp):
+        return
     
     for i in range(len(tmp)):
         if not visited[i]:
             visited[i] = True
             ans.append(tmp[i])
 
-            choose(cnt+1)
+            choose(idx+1, cnt+1)
 
             ans.pop()
             visited[i] = False
-choose(0)
+choose(0,0)
+
+if min_val == sys.maxsize:
+    min_val = -1
+
 print(min_val)
