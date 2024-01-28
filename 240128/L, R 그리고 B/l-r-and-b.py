@@ -20,6 +20,10 @@ for i in range(10):
         if arr[i][j] == 'L':
             x,y = i,j
 while (1):
+    if y == idy_b and y == idy_r:
+        cnt +=1
+        y -=1
+        continue
     for a,b in zip(dx, dy):
         nx = x+a
         ny = y+b
@@ -27,7 +31,7 @@ while (1):
             x = x+a
             y = y+b
             break
-    if arr[nx][ny] == 'B':
+    if arr[x][y] == 'B':
         break
     cnt +=1
     
