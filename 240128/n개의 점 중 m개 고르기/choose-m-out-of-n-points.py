@@ -29,7 +29,7 @@ def choose(idx, cnt):
     if idx == n:
         return
 
-    ans.append(arr[idx])
+    ans.append(arr[cnt])
     choose(idx+1, cnt + 1)
     ans.pop()
     choose(idx+1, cnt)
