@@ -50,15 +50,11 @@ def choose(idx, cnt):
     if idx == len(tmp):
         return
     
-    for i in range(len(tmp)):
-        if not visited[i]:
-            visited[i] = True
-            ans.append(tmp[i])
+    ans.append(tmp[idx])
+    choose(idx+1, cnt+1)
+    ans.pop()
+    choose(idx+1, cnt)
 
-            choose(idx+1, cnt+1)
-
-            ans.pop()
-            visited[i] = False
 choose(0,0)
 
 if min_val == sys.maxsize:
