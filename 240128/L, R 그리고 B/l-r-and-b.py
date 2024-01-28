@@ -1,38 +1,24 @@
-arr=[]
-def in_range(x,y):
-    return 0<=x<10 and 0<=y<10
+from sys import stdin
+n = 10
+base = []
+for _ in range(n):
+    base.append(stdin.readline().strip())
 
-for _ in range(10):
-    tmp = str(input())
-    arr.append(list(tmp))
+for i in range(n):
+    for j in range(n):
+        if base[i][j] != ".":
+            if base[i][j] == "B":
+                B=[i, j]
+            elif base[i][j] == "R":
+                R=[i, j]
+            elif base[i][j] == "L":
+                L=[i, j]
 
-dx =[-1,1,0,0]
-dy = [0,0,-1,1]
-cnt =0
-idx_b,idy_b,idx_r,idy_r=0,0,0,0
-x,y = 0,0
-for i in range(10):
-    for j in range(10):
-        if arr[i][j] == 'B':
-            idx_b,idy_b = i,j
-        if arr[i][j] == 'R':
-            idx_r,idy_r = i,j
-        if arr[i][j] == 'L':
-            x,y = i,j
-while (1):
-    if y == idy_b and y == idy_r:
-        cnt +=1
-        y -=1
-        continue
-    for a,b in zip(dx, dy):
-        nx = x+a
-        ny = y+b
-        if in_range(nx,ny) and abs(nx - idx_b) <= abs(x - idx_b) and abs(ny - idy_b) <= abs(y - idy_b) and arr[nx][ny] != 'R':
-            x = x+a
-            y = y+b
-            break
-    if arr[x][y] == 'B':
-        break
-    cnt +=1
-    
-print(cnt)
+#L, B가 일직선이 최단 경로일때 거기에 R이 있을대만 경로가 2개 증가
+
+ans = abs(B[0]-L[0])+abs(B[1]-L[1])-1
+if min(B[0],L[0])<R[0]<max(B[0],L[0]) and B[1]==L[1]==R[1]:
+    ans += 2
+elif min(B[1],L[1])<R[1]<max(B[1],L[1]) and B[0]==L[0]==R[0]:
+    ans += 2
+print(ans)
