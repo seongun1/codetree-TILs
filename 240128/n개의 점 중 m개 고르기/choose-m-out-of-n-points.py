@@ -6,7 +6,7 @@ min_val = sys.maxsize
 
 arr = [
     tuple(map(int,input().split()))
-    for _ in range(m)
+    for _ in range(n)
 ]
 ans = list()
 
