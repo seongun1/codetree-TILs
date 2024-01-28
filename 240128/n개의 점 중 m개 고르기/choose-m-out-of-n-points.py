@@ -22,9 +22,10 @@ def choose(idx, cnt):
         max_val = -sys.maxsize
         for i, val in enumerate(ans):
             for j, val1 in enumerate(ans):
-                if i < j:
+                if i != j:
                     max_val = max(max_val, getDist(val, val1))
         min_val = min(min_val, max_val)
+        return
     
     if idx == n:
         return
