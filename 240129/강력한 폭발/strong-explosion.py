@@ -24,10 +24,7 @@ def in_range(x,y):
 
 def getSize():
 
-    tmp = [
-        [0 for _ in range(n)] 
-        for _ in range(n)
-    ]
+    tmp =[[0] * n for _ in range(n)]
 
     for i in ans:
         num,x,y = i
@@ -36,33 +33,30 @@ def getSize():
 
         if num == 1:
             for j in boom1:
-                dx,dy = j
+                next_x, next_y = j
 
-                next_x , next_y = x + dx, y + dy
-                if not in_range(next_x, next_x):
+                if not in_range(x + next_x, y + next_y):
                     continue
-                 
-                tmp[next_x][next_y] = 1
+
+                tmp[x + next_x][y + next_y] = 1
 
         elif num == 2:
             for j in boom2:
-                dx,dy = j
+                next_x, next_y = j
 
-                next_x , next_y = x + dx, y + dy
-                if not in_range(next_x, next_x):
+                if not in_range(x + next_x, y + next_y):
                     continue
-                 
-                tmp[next_x][next_y] = 1
+
+                tmp[x + next_x][y + next_y] = 1
 
         elif num == 3:
             for j in boom3:
-                dx,dy = j
+                next_x, next_y = j
 
-                next_x , next_y = x + dx, y + dy
-                if not in_range(next_x, next_x):
+                if not in_range(x + next_x, y + next_y):
                     continue
-                 
-                tmp[next_x][next_y] = 1
+
+                tmp[x + next_x][y + next_y] = 1
     size = 0
     for i in range(n):
         for j in range(n):
