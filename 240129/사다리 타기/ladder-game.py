@@ -20,7 +20,7 @@ def calc():
     for _ , idx in ans:
         num1[idx], num1[idx+1] = num1[idx+1], num1[idx]
     for _ , idx in arr:
-        num1[idx], num1[idx+1] = num1[idx+1], num1[idx]
+        num2[idx], num2[idx+1] = num2[idx+1], num2[idx]
     
     for i in range(n):
         if num1[i] != num2[i]:
