@@ -11,7 +11,7 @@ arr.sort()
 
 ans = []
 
-min_val = sys.maxsize
+min_val = m
 
 def calc():
     num1 = [i for i in range(n)]
