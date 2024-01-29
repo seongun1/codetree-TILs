@@ -28,21 +28,18 @@ def calc():
     return True
     
 
-def choose(idx, cnt):
+def choose(cnt):
     global min_val
 
     if cnt == m:
         if calc():
             min_val = min(min_val, len(ans))
         return
-    
-    if idx == m:
-        return
 
-    ans.append(arr[idx])
-    choose(idx+1, cnt+1)
+    ans.append(arr[cnt])
+    choose(cnt+1)
     ans.pop()
-    choose(idx+1, cnt+1)
+    choose(cnt+1)
     
-choose(0,0)
+choose(0)
 print(min_val)
