@@ -35,10 +35,14 @@ def choose(idx, cnt):
         if calc():
             min_val = min(min_val, len(ans))
         return
+    
+    if idx == m:
+        return
 
     ans.append(arr[idx])
     choose(idx+1, cnt+1)
     ans.pop()
     choose(idx+1, cnt+1)
+    
 choose(0,0)
 print(min_val)
