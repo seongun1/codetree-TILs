@@ -32,7 +32,9 @@ def bfs():
                 q.append((next_x,next_y))
 
 bfs()
-if visited[x2-1][y2-1] == 0:
+if x1 == x2 and y1 == y2:
+    print(0)
+elif visited[x2-1][y2-1] == 0:
     print(-1)
 else:
     print(visited[x2-1][y2-1])
