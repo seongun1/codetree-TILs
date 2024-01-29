@@ -24,7 +24,10 @@ def in_range(x,y):
 
 def getSize():
 
-    tmp = [[0 for _ in range(n)] for _ in range(n)]
+    tmp = [
+        [0 for _ in range(n)] 
+        for _ in range(n)
+    ]
 
     for i in ans:
         num,x,y = i
@@ -40,6 +43,7 @@ def getSize():
                     continue
                  
                 tmp[next_x][next_y] = 1
+
         elif num == 2:
             for j in boom2:
                 dx,dy = j
@@ -49,6 +53,7 @@ def getSize():
                     continue
                  
                 tmp[next_x][next_y] = 1
+
         elif num == 3:
             for j in boom3:
                 dx,dy = j
@@ -73,10 +78,11 @@ def choose(cnt):
         return
     
     for i in range(1,4):
-        for j in boom:
-            ans.append((i, j[0], j[1]))
-            choose(cnt+1)
-            ans.pop()
+        x,y = boom[cnt]
+
+        ans.append((i, x,y))
+        choose(cnt+1)
+        ans.pop()
 
 choose(0)
 print(max_val)
