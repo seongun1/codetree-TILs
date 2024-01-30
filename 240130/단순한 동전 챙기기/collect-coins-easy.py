@@ -10,15 +10,14 @@ min_val = sys.maxsize
 
 s,e = (-1,-1),(-1,-1)
 
-tmp = []
 for i in range(n):
     for j in range(n):
         if arr[i][j] == 'S':
             s = (i,j)
-        else:
+        elif arr[i][j] == 'E':
             e = (i,j)
 
-coin = []
+coin = list()
 for num in range(1,10):
     for i in range(n):
         for j in range(n):
@@ -54,6 +53,8 @@ def choose(idx, cnt):
     ans.pop()
     choose(idx + 1, cnt)
 choose(0,0)
+
+
 
 if min_val == sys.maxsize:
     min_val = -1
