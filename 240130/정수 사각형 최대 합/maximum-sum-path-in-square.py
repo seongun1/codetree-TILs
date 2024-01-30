@@ -30,13 +30,13 @@ for i in range(2,n):
         d[i][j] = max(d[i-1][j], d[i-1][j-1]) + arr[i][j]
 
 ans = -sys.maxsize
-tmp = 0
+j = 0
 for i in range(n):
     if ans <= d[n-1][i]:
         ans = d[n-1][i]
-        tmp = arr[n-1][i]
+        j = i
+    #ans = max(ans, d[n-1][i])
+for k in range(j+1,n):
+    ans += arr[n-1][k]
 
-val = -1 * tmp
-for i in range(n):
-    val += arr[n-1][i]
-print(ans + val)
+print(ans)
