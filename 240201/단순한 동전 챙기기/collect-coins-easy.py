@@ -53,4 +53,8 @@ def choose(idx, cnt):
     choose(idx+1,cnt)
 
 choose(0,0)
+
+if min_val == sys.maxsize:
+    min_val = -1
+
 print(min_val)
