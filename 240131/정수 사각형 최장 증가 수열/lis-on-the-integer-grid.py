@@ -5,32 +5,52 @@ arr = [
     for _ in range(n)
 ]
 
+max_cnt = 0
+
 dxs,dys = [-1,1,0,0], [0,0,-1,1]
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
-max_val = 0
-
 def dfs(x,y):
-    global max_val
-    #print(x,y , max_val)
+    global cnt
+    tmp = 0
     for dx, dy in zip(dxs, dys):
-        next_x, next_y = x + dx, y + dy
+        next_x, next_y = x + dx , y + dy
 
-        if in_range(next_x,next_y) and arr[next_x][next_y] > arr[x][y]:
-            d[next_x][next_y] = d[x][y] + 1
-            max_val = max(max_val, d[next_x][next_y])
-            dfs(next_x, next_y)
+        if not in_range(next_x, next_y):
+            cnt.append(tmp)
+            tmp = 0
+            continue
         
+        if arr[x][y] >= arr[next_x][next_y]:
+            cnt.append(tmp)
+            tmp = 0
+            continue
+        
+        # if visited[next_x][next_y]:
+        #     continue
+
+        #print("arr[x][y] : {}, arr[next_x][next_y] : {}".format(arr[x][y], arr[next_x][next_y]))
+        tmp += 1
+        #visited[next_x][next_y] = True
+        dfs(next_x, next_y)
+    cnt.append(tmp)
 
 for x in range(n):
     for y in range(n):
-        d = [
-            [0 for _ in range(n)]
-            for _ in range(n)
-        ]
-        d[x][y] = 1
+        cnt = []
+        
+        # visited = [
+        #     [False for _ in range(n)]
+        #     for _ in range(n)
+        # ]
+
+        # visited[x][y] = True
         dfs(x,y)
 
-print(max_val)
+        #print(x,y,cnt)
+
+        max_cnt = max(max_cnt,max(cnt))
+
+print(max_cnt+1)
