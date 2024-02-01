@@ -11,14 +11,14 @@ arr = [
 ]
 
 for i in range(1,n):
-    for j in range(1,n):
+    for j in range(1,m):
         for x in range(i):
-            for y in range(i):
+            for y in range(j):
                 if arr[i][j] > arr[x][y]:
                     d[i][j] = max(d[i][j], d[x][y] + 1)
 
 ans = 0
 for i in range(n):
-    for j in range(n):
+    for j in range(m):
         ans = max(ans, d[i][j])
 print(ans)
