@@ -12,10 +12,11 @@ for i in range(n):
 for i in range(1,n):
     for j in range(i):
         
-        s1, _ , _ = arr[i]
+        s1, _ , p1 = arr[i]
         _, e2 , p2 = arr[j]
 
         if e2 < s1:
-            d[i] = max(d[i], d[j] + p2)
+            d[i] = max(d[i], d[j] + p1)
 
+#print(d)
 print(max(d))
