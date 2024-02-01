@@ -16,7 +16,7 @@ arr = [
 
 def initialize():
     for i in range(n):
-        for j in range(n):
+        for j in range(m):
             d[i][j] = INT_MIN
     d[0][0] = 1
 
