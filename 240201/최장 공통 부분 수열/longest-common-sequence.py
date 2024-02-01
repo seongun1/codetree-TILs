@@ -14,13 +14,13 @@ def init():
 
     for i in range(1,n):
         if a[i] == b[0]:
-            d[i][0] = d[i-1][0] + 1
+            d[i][0] = 1
         else:
             d[i][0] = d[i-1][0]
 
     for j in range(1,m):
         if a[0] == b[j]:
-            d[0][j] = d[0][j-1] + 1
+            d[0][j] = 1
         else:
             d[0][j] = d[0][j-1]
             
