@@ -1,18 +1,20 @@
 n = int(input())
-arr = []
 
-for _ in range(n):
-    arr.append(list(map(int, input().split())))
+arr = [
+    tuple(map(int,input().split()))
+    for _ in range(n)
+]
 
-arr.sort(key=lambda x: x[1])
+arr.sort()
 
-endPoint = -1 
-cnt = 0  
+d = [1] * n
 
-for i in arr:
-    start, end = i
-    if start > endPoint:
-        cnt += 1
-        endPoint = end
+for i in range(1,n):
+    for j in range(i):
+        i_x1, _ = arr[i]
+        _, j_x2 = arr[j]
 
-print(cnt)
+        if j_x2 < i_x1:
+            d[i] = max(d[i], d[j] + 1)
+
+print(max(d))
