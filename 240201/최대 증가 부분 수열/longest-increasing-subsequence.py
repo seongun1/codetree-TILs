@@ -1,6 +1,6 @@
 n = int(input())
 arr = list(map(int,input().split()))
-
+# LIS
 d = [1 for _ in range(n+1)]
 
 for i in range(1,n):
