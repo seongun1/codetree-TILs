@@ -25,11 +25,11 @@ init()
 for i in range(1,n+1):
     flag = False
     for j in range(1,m+1):
-        if s[i-1] == p[i-1]:
+        if s[i-1] == p[j-1]:
             break
-        if '*' == p[i-1]:
+        if '*' == p[j-1]:
             sys.exit(0)
-        if '.' == p[i-1]:
+        if '.' == p[j-1]:
             break
         else:
             flag = True
