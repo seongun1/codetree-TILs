@@ -23,7 +23,7 @@ for i in range(1,n+1):
         if s[i-1] == t[j-1]:
             d[i][j] = d[i-1][j-1] - 1
             #print("d[i][j] : {}, d[i-1][j-1] : {}".format(d[i][j],d[i-1][j-1]))
-        else:
-            d[i][j] = max(d[i-1][j], d[i][j-1])
+        # else:
+        #     d[i][j] = max(d[i-1][j], d[i][j-1])
 #print(d)
 print(d[n][m])
