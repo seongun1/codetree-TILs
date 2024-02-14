@@ -11,17 +11,14 @@ ans = -sys.maxsize
 def in_range(x,y):
     return 0<=x<n and 0<=y<m
 
-visited = [
-    [False for _ in range(m)]
-    for _ in range(n)
-]
+visited = [[False] * m for _ in range(n)]
 
-def able(x,y,a,b):
-    for i in range(x, x+a):
-        for j in range(y, y+b):
-            if visited[i][j]:
-                return False
+def able(x,y,h,w):
+    for i in range(x,x+h):
+        for j in range(y,y+w):
             if not in_range(i,j):
+                return False
+            if visited[i][j]:
                 return False
     return True
 
@@ -31,24 +28,24 @@ def make():
         for j in range(m):
             if visited[i][j]:
                 continue
-            for h in range(1,n):
-                for w in range(1,m):
+            
+            for h in range(1,n+1):
+                for w in range(1,m+1):
                     sum_val = 0
-
                     if not able(i,j,h,w):
                         continue
                     
                     for x in range(i,i+h):
                         for y in range(j,j+w):
-                            sum_val = arr[x][y]
-                    
+                            sum_val += arr[x][y]
+                
                     max_val = max(max_val, sum_val)
     return max_val
 
 for i in range(n):
     for j in range(m):
-        for h in range(1,n):
-            for w in range(1,m):
+        for h in range(1,n+1):
+            for w in range(1,m+1):
                 
                 sum_val = 0
 
@@ -57,7 +54,7 @@ for i in range(n):
                 
                 for x in range(i,i+h):
                     for y in range(j,j+w):
-                        sum_val = arr[x][y]
+                        sum_val += arr[x][y]
                         visited[x][y] = True
 
                 ans = max(ans, sum_val + make())
