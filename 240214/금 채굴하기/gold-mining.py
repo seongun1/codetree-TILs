@@ -6,13 +6,8 @@ arr = [
     for _ in range(n)
 ]
 
-dxs, dys = [-1,1,0,0], [0,0,-1,1]
-
 def getCost(k):
     return k ** 2 + (k+1) ** 2
-
-def in_range(x,y):
-    return 0<=x<n and 0<=y<n
 
 def getGold(x,y):
     max_gold = -sys.maxsize
@@ -23,13 +18,13 @@ def getGold(x,y):
                 if abs(x-i) + abs(y-j) <= k:
                     if arr[i][j]:
                         tmp += 1
-                        
+
         if tmp * m >= getCost(k):
             max_gold = max(max_gold, tmp)
                 
     return max_gold
 
-max_val = -sys.maxsize
+max_val = 0
 
 for x in range(n):
     for y in range(n):
