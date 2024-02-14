@@ -20,11 +20,13 @@ def getGold(x,y):
         tmp = 0
         for i in range(n):
             for j in range(n):
-                if arr[i][j]:
-                    tmp += 1
-
-                if abs(x-i) + abs(y-j) == k:
-                    max_gold = max(max_gold, tmp - getCost(k))
+                if abs(x-i) + abs(y-j) <= k:
+                    if arr[i][j]:
+                        tmp += 1
+                        
+        if tmp * m >= getCost(k):
+            max_gold = max(max_gold, tmp)
+                
     return max_gold
 
 max_val = -sys.maxsize
