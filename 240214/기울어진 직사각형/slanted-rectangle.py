@@ -13,7 +13,7 @@ def in_range(x,y):
 
 def getDist(x,y,h,k):
     cnt = 0
-    d = [a,b,a,b]
+    d = [h,k,h,k]
 
     for dx, dy, move in zip(dxs, dys, d):
         for _ in range(move):
