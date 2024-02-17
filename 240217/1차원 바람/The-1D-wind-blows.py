@@ -1,3 +1,4 @@
+from collections import deque
 n,m,q = map(int,input().split())
 
 arr = [
@@ -13,25 +14,28 @@ for _ in range(q):
     wind.append((row, direct))
 
 def move(tmp_arr, row, direct):
-    
-    if direct == 'L': # 오른쪽으로 이동
-        tmp = tmp_arr[-1]
+    q = deque(tmp_arr)
 
-        for i in range(m-2,-1,-1):
-            tmp_arr[i+1] = tmp_arr[i]
-        tmp_arr[0] = tmp
+    if direct == 'L': # 오른쪽으로 이동
+        data = q.pop()
+        q.appendleft(data)
+        # tmp = tmp_arr[-1]
+
+        # for i in range(m-2,-1,-1):
+        #     tmp_arr[i+1] = tmp_arr[i]
+        # tmp_arr[0] = tmp
 
     elif direct == 'R':
-        tmp = tmp_arr[0]
+        data = q.popleft()
+        q.append(data)
+        
+        # tmp = tmp_arr[0]
 
-        for i in range(1,m):
-            tmp_arr[i-1] = tmp_arr[i]
-        tmp_arr[-1] = tmp
+        # for i in range(1,m):
+        #     tmp_arr[i-1] = tmp_arr[i]
+        # tmp_arr[-1] = tmp
 
-    return tmp_arr
-
-def in_range(x):
-    return 0<=x<n
+    return q
 
 def checkArr(arr1, arr2):
     for i in range(m):
