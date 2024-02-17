@@ -19,7 +19,7 @@ def press():
     cnt = 1
 
     if n == 1 or n == 2:
-        return n
+        return 2
 
     for i in range(n-1):
         if arr[i] == arr[i+1]:
