@@ -20,7 +20,7 @@ def move(tmp_arr, row, direct):
         data = q.pop()
         q.appendleft(data)
 
-    elif direct == 'R':
+    else:
         data = q.popleft()
         q.append(data)
 
@@ -52,14 +52,18 @@ for i in wind:
             down = change_wind(down)
             arr[i-1] = move(arr[i-1], i-1 , down)
             continue
+        else:
+            break
 
     for i in range(row,n-1):
 
         if checkArr(arr[i], arr[i+1]):
-            
+
             up = change_wind(up)
             arr[i+1] = move(arr[i+1], i+1 , up)
             continue
+        else:
+            break
                 
 for i in arr:
     print(*i)
