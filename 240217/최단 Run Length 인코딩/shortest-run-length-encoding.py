@@ -18,19 +18,19 @@ def press():
     compress = ""
     cnt = 1
 
+    if n == 1 or n == 2:
+        return n
+
     for i in range(n-1):
         if arr[i] == arr[i+1]:
             cnt += 1
         else:
-            compress += arr[i]
-            compress += str(cnt)
+            compress += arr[i] + str(cnt)
             cnt = 1
         
         if i == n-2:
-            compress += arr[i+1]
-            compress += str(cnt)
+            compress += arr[i+1] + str(cnt)
 
-    #print(compress)
     return len(compress)
 
 for _ in range(n):
