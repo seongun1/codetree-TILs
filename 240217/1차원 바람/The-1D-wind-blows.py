@@ -19,21 +19,10 @@ def move(tmp_arr, row, direct):
     if direct == 'L': # 오른쪽으로 이동
         data = q.pop()
         q.appendleft(data)
-        # tmp = tmp_arr[-1]
-
-        # for i in range(m-2,-1,-1):
-        #     tmp_arr[i+1] = tmp_arr[i]
-        # tmp_arr[0] = tmp
 
     elif direct == 'R':
         data = q.popleft()
         q.append(data)
-        
-        # tmp = tmp_arr[0]
-
-        # for i in range(1,m):
-        #     tmp_arr[i-1] = tmp_arr[i]
-        # tmp_arr[-1] = tmp
 
     return q
 
@@ -43,45 +32,34 @@ def checkArr(arr1, arr2):
             return True
     return False
 
+def change_wind(direct):
+    if direct == 'L':
+        return 'R'
+    else:
+        return 'L'
+
 for i in wind:
     row, direct = i
 
-    up_direct, down_direct = list(), list()
-
-    if direct == 'L':
-        up_direct.append(0)
-        down_direct.append(0)
-    else:
-        up_direct.append(1)
-        down_direct.append(1)
+    up, down = direct, direct
 
     arr[row] = move(arr[row], row , direct)
     
     for i in range(row,0,-1):
+
         if checkArr(arr[i], arr[i-1]):
 
-            if up_direct[-1] == 1:
-                arr[i-1] = move(arr[i-1], i-1 , 'L')
-                up_direct.append(0)
-                continue
-
-            else:
-                arr[i-1] = move(arr[i-1], i-1 , 'R')
-                up_direct.append(1)
-                continue
+            down = change_wind(down)
+            arr[i-1] = move(arr[i-1], i-1 , down)
+            continue
 
     for i in range(row,n-1):
+
         if checkArr(arr[i], arr[i+1]):
-
-            if up_direct[-1] == 1:
-                arr[i+1] = move(arr[i+1], i+1 , 'L')
-                up_direct.append(0)
-                continue
-
-            else:
-                arr[i+1] = move(arr[i+1], i+1 , 'R')
-                up_direct.append(1)
-                continue
+            
+            up = change_wind(up)
+            arr[i+1] = move(arr[i+1], i+1 , up)
+            continue
                 
 for i in arr:
     print(*i)
