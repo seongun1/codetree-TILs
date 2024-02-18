@@ -1,5 +1,5 @@
-import sys
-sys.setrecursionlimit(10**5)
+# import sys
+# sys.setrecursionlimit(10**5)
 
 n = int(input())
 arr = [
@@ -47,5 +47,5 @@ for i in range(n):
         
             if cnt >= 4:
                 res.append(cnt)
-
+#print(res)
 print(len(res), max(res))
