@@ -1,5 +1,5 @@
-# import sys
-# sys.setrecursionlimit(10**5)
+import sys
+sys.setrecursionlimit(10**5)
 
 n = int(input())
 arr = [
@@ -36,7 +36,7 @@ def dfs(x,y,num):
             dfs(nx,ny,num)
 
 
-res = []
+res = [0]
 for i in range(n):
     for j in range(n):
         num = arr[i][j]
@@ -48,4 +48,4 @@ for i in range(n):
             if cnt >= 4:
                 res.append(cnt)
 #print(res)
-print(len(res), max(res))
+print(len(res)-1, max(res))
