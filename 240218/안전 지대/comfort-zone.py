@@ -1,12 +1,7 @@
 n,m = map(int,input().split())
 
 arr = [
-    list(map(int,input().split()))
-    for _ in range(n)
-]
-
-visited = [
-    [False for _ in range(m)]
+    list(map(int, input().split()))
     for _ in range(n)
 ]
 
@@ -20,21 +15,19 @@ def can_go(x,y,k):
         return False
     return True
 
-dxs,dys = [1,-1,0,0],[0,0,-1,1]
+dxs, dys = [-1,1,0,0], [0,0,-1,1]
 
 def dfs(x,y,k):
-
     for dx, dy in zip(dxs, dys):
-        nx, ny = x + dx, y + dy
+        nx,ny = x+dx, y+dy
 
-        if can_go(nx, ny ,k):
+        if can_go(nx,ny,k):
             visited[nx][ny] = True
             dfs(nx,ny,k)
-    
 
 ans = list()
 for k in range(1,101):
-    cnt = 0
+    res = 0
 
     visited = [
         [False for _ in range(m)]
@@ -44,10 +37,12 @@ for k in range(1,101):
     for i in range(n):
         for j in range(m):
             if can_go(i,j,k):
-                cnt += 1
+                res += 1
                 visited[i][j] = True
                 dfs(i,j,k)
 
-    ans.append((cnt, k))
-ans.sort(key = lambda x : (-x[0]))
-print(ans[0][0], ans[0][1])
+    ans.append((res,k))
+
+ans.sort(key = lambda x : (-x[0], x[1]))
+
+print(ans[0][1], ans[0][0])
