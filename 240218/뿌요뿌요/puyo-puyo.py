@@ -1,5 +1,6 @@
 import sys
-sys.setrecursionlimit(10**5)
+boom = 0
+max_val = -sys.maxsize
 
 n = int(input())
 arr = [
@@ -25,7 +26,7 @@ def can_go(x,y,num):
     return True
 
 def dfs(x,y,num):
-    global cnt
+    global cnt, max_val
 
     for dx, dy in zip(dxs, dys):
         nx,ny = x + dx, y + dy
@@ -34,9 +35,11 @@ def dfs(x,y,num):
             visited[nx][ny] = True
             cnt += 1
             dfs(nx,ny,num)
+            
+    max_val = max(cnt, max_val)
 
 
-res = [0]
+
 for i in range(n):
     for j in range(n):
         num = arr[i][j]
@@ -46,6 +49,6 @@ for i in range(n):
             dfs(i,j,num)
         
             if cnt >= 4:
-                res.append(cnt)
-#print(res)
-print(len(res)-1, max(res))
+                boom += 1
+
+print(boom, max_val)
