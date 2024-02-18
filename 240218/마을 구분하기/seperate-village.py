@@ -36,10 +36,12 @@ def dfs(x,y):
 res = list()
 for i in range(n):
     for j in range(n):
-        cnt = 0
         if can_go(i,j):
+            cnt = 1
+            visited[i][j] = True
             dfs(i,j)
             res.append(cnt)
+
 res.sort()
 print(len(res))
 for i in res:
