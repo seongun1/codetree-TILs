@@ -1,54 +1,40 @@
 n = int(input())
-arr = []
-for i in range(n):
-    arr.append(list(map(int,input().split())))
 
-x, y ,m1, m2, m3, m4, direct = map(int, input().split())
-move_num = [m1, m2, m3, m4]
+arr = [
+    list(map(int,input().split()))
+    for _ in range(n)
+]
 
-r = x - 1
-c = y - 1
+tmp = [
+    [0 for _ in range(n)]
+    for _ in range(n)
+]
 
-def shift():
-    global r, c, m1, m2, m3, m4, direct, arr
+x, y, m1, m2, m3, m4, move_dir = tuple(map(int, input().split()))
 
-    dxs = [-1, -1, 1, 1]
-    dys = [1, -1, -1, 1]
-    tmp = arr[r][c]
-    cx,cy = r,c
-
-    for d in range(4):
-        move = move_num[d]
-
-        for _ in range(move):
-            nx,ny = cx + dxs[d] , cy + dys[d]
-            arr[cx][cy] = arr[nx][ny]
-            cx,cy = nx,ny
+def shift(x,y,k,l,d):
+    if d == 0:
+        dxs,dys = [-1,-1,1,1],[1,-1,-1,1]
+        move_num = [k,l,k,l]
+    else:
+        dxs,dys = [-1,-1,1,1],[-1,1,1,-1]
+        move_num = [l,k,l,k]
     
-    arr[r-1][c-1] = tmp
-
-def reverse_shift():
-    global r, c, m1, m2, m3, m4, direct, arr
-
-    dxs = [1, 1, -1, -1]
-    dys = [-1, 1, 1, -1]
-    tmp = arr[r][c]
-    cx,cy = r,c
-
-    for d in range(3,-1,-1):
-        move = move_num[d]
-
-        for _ in range(move):
-            nx,ny = cx + dxs[d] , cy + dys[d]
-            arr[cx][cy] = arr[nx][ny]
-            cx,cy = nx,ny
+    for i in range(n):
+        for j in range(n):
+            tmp[i][j] = arr[i][j]
     
-    arr[r-1][c+1] = tmp
+    for dx, dy, move in zip(dxs, dys, move_num):
+        for _ in range(move):
+            nx,ny = x + dx, y + dy
+            tmp[nx][ny] = arr[x][y]
+            x,y = nx,ny
 
-if direct == 1: # 시계
-    shift()
-else:
-    reverse_shift()
+    for i in range(n):
+        for j in range(n):
+            arr[i][j] = tmp[i][j]
+
+shift(x-1, y-1, m1, m2, move_dir)
 
 for i in arr:
     print(*i)
