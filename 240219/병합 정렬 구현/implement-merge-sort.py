@@ -2,44 +2,37 @@ n=int(input())
 arr = list(map(int,input().split()))
 
 
+merged_arr = [0] *n
 
-def merge_sort(a):
-    def sort(unsorted_list):
-        if len(unsorted_list) <= 1:
-            return
-        # 두개의 리스트로 분할. 아래에서 재귀적으로 시행
-        mid = len(unsorted_list) // 2
-        left = unsorted_list[:mid]
-        right = unsorted_list[mid:]
-        merge_sort(left)
-        merge_sort(right)
-        merge(left, right)
-        
-    def merge(left, right):
-        i = 0
-        j = 0
-        k = 0
-        while (i < len(left)) and (j < len(right)):
-            if left[i] < right[j]:
-                a[k] = left[i]
-                i += 1
-                k+= 1
-            else:
-                a[k] = right[j]
-                j += 1
-                k+= 1
-        # 남은 데이터 삽입
-        while i < len(left):
-            a[k] = left[i]
-            i += 1
-            k+= 1
-        while j < len(right):
-            a[k] = right[j]
-            j += 1
-            k+= 1
-    sort(a)
-    if len(a) == n:
-        for i in a:
-            print(i,end=' ')
+def merge(low,mid,high):
+    i,j = low,mid+1
+    k = low
+    while i<= mid and j <= high:
+        if arr[i] <= arr[j]:
+            merged_arr[k] = arr[i]
+            k +=1
+            i +=1
+        else:
+            merged_arr[k] = arr[j]
+            k +=1
+            j +=1
+    while i<= mid:
+        merged_arr[k] = arr[i]
+        k +=1
+        i +=1
+    while j<= high:
+        merged_arr[k] = arr[j]
+        k +=1
+        j +=1
+    for e in range(low,high+1):
+        arr[e] = merged_arr[e]
+def merge_sort(low,high):
+    if low<high:
+        mid = (low + high) //2
+        merge_sort(low,mid)
+        merge_sort(mid+1, high)
+        merge(low,mid,high)
 
-merge_sort(arr)
+merge_sort(0,n-1)
+for a in arr:
+    print(a,end=' ')
