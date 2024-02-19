@@ -23,12 +23,18 @@ def boom(x,y,boomCnt):
     global arr
 
     arr[x][y] = 0
-
+    
     for dx,dy in zip(dxs, dys):
-        nx,ny = x + dx, y + dy
-
+        cur_x, cur_y = x,y
+        
         for i in range(boomCnt - 1):
+            nx,ny = cur_x + dx, cur_y + dy
+
+            if not in_range(nx,ny):
+                continue
+
             arr[nx][ny] = 0
+            cur_x,cur_y = nx,ny
 
 boom(r,c,arr[r][c])
 
