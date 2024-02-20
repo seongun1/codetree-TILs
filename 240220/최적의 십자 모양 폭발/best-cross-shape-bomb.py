@@ -4,7 +4,7 @@ n = int(input())
 dxs = [-1,1,0,0]
 dys = [0,0,-1,1]
 
-arr = [
+arr_list = [
     list(map(int,input().split()))
     for _ in range(n)
 ]
@@ -54,7 +54,7 @@ for r in range(n):
     for c in range(n):
 
         temp = [[0] * n for _ in range(n)]
-        #arr = copy.deepcopy(arr_list) # 깊은 복사 (원본이 변경되지 않아 원본을 복사 )
+        arr = copy.deepcopy(arr_list) # 깊은 복사 ( 원본이 변경되지 않아 원본을 복사 )
 
         boom(r,c, arr[r][c])
 
