@@ -72,12 +72,23 @@ def move():
         for j in range(n):
             if new_arr[i][j] != 0:
                 for h in range(i-1,-1,-1):
-                    if new_arr[h][j] != new_arr[i][j]:
+                    #print("before i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
+                    if new_arr[h][j] == 0:
+                        #print("zero new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
+                        continue
+                    
+                    elif new_arr[h][j] != new_arr[i][j]:
+                        #print("different i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
                         break
+
                     elif new_arr[h][j] == new_arr[i][j]:
+                        #print("same i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
                         new_arr[i][j] *= 2
                         new_arr[h][j] = 0
                         break
+    
+    # for i in new_arr:
+    #     print(*i)
     
     # 아래로 내림
     for i in range(n-1,-1,-1):
