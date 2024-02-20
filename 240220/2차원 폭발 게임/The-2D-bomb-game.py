@@ -40,7 +40,6 @@ def boom():
                     arr[h][j] = 0
 
 def go_down():
-    global arr
 
     tmp = [
         [0 for _ in range(n)]
@@ -54,32 +53,47 @@ def go_down():
                     if tmp[h][j] == 0:
                         tmp[h][j] = arr[i][j]
                         break  
-    return tmp             
+
+    for i in range(n):
+        for j in range(n):
+            arr[i][j] = tmp[i][j]
+
+def check_boom():
+    for i in range(n):
+        for j in range(n):
+            cnt = 1
+
+            if arr[i][j] == 0:
+                continue
+
+            for next_i in range(i+1,n):
+                if arr[i][j] == arr[next_i][j]:
+                    cnt += 1
+                    if cnt >= m:
+                        return True
+                else:
+                    if cnt >= m:
+                        return True
+                    break
+ 
+            if cnt >= m:
+                return True
+    return False
 
 for _ in range(k):
+    while check_boom():
+        boom()
+        go_down()
+    arr = rotate(arr)
+    go_down()
+
+while check_boom():
     boom()
-
-    tmp_arr = go_down()
-    
-    new_arr = rotate(tmp_arr)
-
-    for i in range(n):
-        for j in range(n):
-            arr[i][j] = new_arr[i][j]
-    
-    tmp_arr = go_down()
-    
-    for i in range(n):
-        for j in range(n):
-            arr[i][j] = tmp_arr[i][j]
-
-boom()
-
-tmp_arr = go_down()
+    go_down()
 
 ans = 0
 for i in range(n):
     for j in range(n):
-        if tmp_arr[i][j] != 0:
+        if arr[i][j] != 0:
             ans += 1
 print(ans)
