@@ -73,9 +73,13 @@ for _ in range(k):
         for j in range(n):
             arr[i][j] = tmp_arr[i][j]
 
+boom()
+
+tmp_arr = go_down()
+
 ans = 0
 for i in range(n):
     for j in range(n):
-        if arr[i][j] != 0:
+        if tmp_arr[i][j] != 0:
             ans += 1
 print(ans)
