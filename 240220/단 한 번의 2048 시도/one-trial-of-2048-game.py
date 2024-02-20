@@ -35,39 +35,37 @@ tmp = [
     for _ in range(n)
 ]
 
-def turn(direction, arr1):
-    if direction == 'R':
-        arr2 = rotate(arr1, 1)
+# def turn(direction, arr1):
+#     if direction == 'R':
+#         arr2 = rotate(arr1, 1)
 
-    elif direction == 'U':
-        arr2 = rotate(arr1, 1)
-        arr2 = rotate(arr2, 1)
+#     elif direction == 'U':
+#         arr2 = rotate(arr1, 1)
+#         arr2 = rotate(arr2, 1)
 
-    elif direction == 'L':
-        arr2 = rotate(arr1, 3)
+#     elif direction == 'L':
+#         arr2 = rotate(arr1, 3)
     
-    else:
-        arr2 = arr1[:]
+#     else:
+#         arr2 = arr1[:]
     
-    return arr2
+#     return arr2
 
 def move():
     global direction, tmp, arr
 
-    new_arr = turn(direction, arr)
+    if direction == 'R':
+        new_arr = rotate(arr, 1)
 
-    # if direction == 'R':
-    #     new_arr = rotate(arr, 1)
+    elif direction == 'U':
+        new_arr = rotate(arr, 1)
+        new_arr = rotate(new_arr, 1)
 
-    # elif direction == 'U':
-    #     new_arr = rotate(arr, 1)
-    #     new_arr = rotate(new_arr, 1)
-
-    # elif direction == 'L':
-    #     new_arr = rotate(arr, 3)
+    elif direction == 'L':
+        new_arr = rotate(arr, 3)
     
-    # else:
-    #     new_arr = arr[:]
+    else:
+        new_arr = arr[:]
 
     # 합치기
     for i in range(n-1,-1,-1):
