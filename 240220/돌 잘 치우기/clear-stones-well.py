@@ -7,11 +7,6 @@ arr = [
     for _ in range(n)
 ]
 
-starts = []
-for i in range(k):
-    x,y = map(int,input().split())
-    starts.append((x-1,y-1))
-
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
@@ -24,7 +19,18 @@ def can_go(x,y):
 
 dxs,dys = [-1,1,0,0], [0,0,-1,1]
 
-def bfs():
+def init_visited():
+    for i in range(n):
+        for j in range(n):
+            visited[i][j] = False
+
+def bfs(x, y):
+    q = deque()
+    q.append((x, y))
+
+    init_visited()
+    visited[x][y] = 1
+    cnt = 1
     while q:
         x,y = q.popleft()
 
@@ -34,23 +40,52 @@ def bfs():
             if can_go(nx,ny):
                 visited[nx][ny] = True
                 q.append((nx,ny))
+                cnt += 1
+    
+    return cnt
 
 visited = [
     [False for _ in range(n)]
     for _ in range(n)
 ]
 
-for i in starts:
-    x,y = i
+def find_stone():
+    stones = []
+    for i in range(n):
+        for j in range(n):
+            if arr[i][j]:
+                stones.append((i,j))
+    return stones
 
-    q = deque()
-    q.append((x,y))
-    visited[x][y] = True
-    bfs()
+def del_stone(start, stones, cnt, idx):
+    global ans
+    if cnt >= m:
+        for x, y in start:
+            ans = max(ans, bfs(x, y))
+        return
 
-cnt = 0
-for i in range(n):
-    for j in range(n):
-        if visited[i][j]:
-            cnt += 1
-print(cnt + m)
+    if idx >= len(stones):
+        return
+
+    for stone in stones:
+        x, y = stone
+        if arr[x][y] == 1:
+            arr[x][y] -= 1
+            del_stone(start, stones, cnt+1, idx+1)
+            arr[x][y] += 1
+
+start = []
+for i in range(k):
+    x,y = map(int,input().split())
+    start.append((x-1,y-1))
+
+ans = 0
+def move():
+    global start
+
+    stones = find_stone()
+
+    del_stone(start, stones, 0, 0)
+    
+    print(ans)
+move()
