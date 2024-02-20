@@ -56,19 +56,6 @@ def move():
 
     new_arr = turn(direction, arr)
 
-    # if direction == 'R':
-    #     new_arr = rotate(arr, 1)
-
-    # elif direction == 'U':
-    #     new_arr = rotate(arr, 1)
-    #     new_arr = rotate(new_arr, 1)
-
-    # elif direction == 'L':
-    #     new_arr = rotate(arr, 3)
-    
-    # else:
-    #     new_arr = arr[:]
-
     # 합치기
     for i in range(n-1,-1,-1):
         for j in range(n):
@@ -97,7 +84,7 @@ def move():
                         break
 
     if direction == 'R':
-        new_arr = rotate(tmp, -1)
+        new_arr = rotate(tmp, 3)
 
     elif direction == 'U':
         new_arr = rotate(tmp, 1)
