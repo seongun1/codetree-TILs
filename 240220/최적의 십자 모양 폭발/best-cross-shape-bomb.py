@@ -4,9 +4,10 @@ n = int(input())
 dxs = [-1,1,0,0]
 dys = [0,0,-1,1]
 
-arr_list = []
-for i in range(n):
-    arr_list.append(list(map(int,input().split())))
+arr = [
+    list(map(int,input().split()))
+    for _ in range(n)
+]
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
@@ -23,10 +24,9 @@ def count_arround_pair(temp):
             for dx, dy in zip(dxs, dys):
                 nx,ny = x + dx, y + dy
 
-                if not in_range(nx,ny):
+                if not in_range(nx,ny) or visited[nx][ny]:
                     continue
-                if visited[nx][ny]:
-                    continue
+                    
                 if temp[x][y] == temp[nx][ny]:
                     cnt += 1
                     visited[nx][ny] = True
@@ -54,7 +54,7 @@ for r in range(n):
     for c in range(n):
 
         temp = [[0] * n for _ in range(n)]
-        arr = copy.deepcopy(arr_list) # 깊은 복사 (원본이 변경되지 않아 원본을 복사 )
+        #arr = copy.deepcopy(arr_list) # 깊은 복사 (원본이 변경되지 않아 원본을 복사 )
 
         boom(r,c, arr[r][c])
 
