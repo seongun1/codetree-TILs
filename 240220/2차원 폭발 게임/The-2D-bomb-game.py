@@ -22,7 +22,6 @@ def rotate(tmp_arr):
 dxs, dys = [-1,1,0,0],[0,0,-1,1]
 
 def boom():
-    global arr
     for i in range(n):
         for j in range(n):
             cnt = 1
