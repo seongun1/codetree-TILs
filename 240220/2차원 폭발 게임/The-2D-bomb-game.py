@@ -68,11 +68,11 @@ def check_boom():
             for next_i in range(i+1,n):
                 if arr[i][j] == arr[next_i][j]:
                     cnt += 1
-                    if cnt >= m:
-                        return True
+                    # if cnt >= m:
+                    #     return True
                 else:
-                    if cnt >= m:
-                        return True
+                    # if cnt >= m:
+                    #     return True
                     break
  
             if cnt >= m:
