@@ -35,60 +35,57 @@ tmp = [
     for _ in range(n)
 ]
 
-# def turn(direction, arr1):
-#     if direction == 'R':
-#         arr2 = rotate(arr1, 1)
+def turn(direction, arr1):
+    if direction == 'R':
+        arr2 = rotate(arr1, 1)
 
-#     elif direction == 'U':
-#         arr2 = rotate(arr1, 1)
-#         arr2 = rotate(arr2, 1)
+    elif direction == 'U':
+        arr2 = rotate(arr1, 1)
+        arr2 = rotate(arr2, 1)
 
-#     elif direction == 'L':
-#         arr2 = rotate(arr1, 3)
+    elif direction == 'L':
+        arr2 = rotate(arr1, 3)
     
-#     else:
-#         arr2 = arr1[:]
+    else:
+        arr2 = arr1[:]
     
-#     return arr2
+    return arr2
 
 def move():
     global direction, tmp, arr
 
-    if direction == 'R':
-        new_arr = rotate(arr, 1)
+    new_arr = turn(direction, arr)
 
-    elif direction == 'U':
-        new_arr = rotate(arr, 1)
-        new_arr = rotate(new_arr, 1)
+    # if direction == 'R':
+    #     new_arr = rotate(arr, 1)
 
-    elif direction == 'L':
-        new_arr = rotate(arr, 3)
+    # elif direction == 'U':
+    #     new_arr = rotate(arr, 1)
+    #     new_arr = rotate(new_arr, 1)
+
+    # elif direction == 'L':
+    #     new_arr = rotate(arr, 3)
     
-    else:
-        new_arr = arr[:]
+    # else:
+    #     new_arr = arr[:]
 
     # 합치기
     for i in range(n-1,-1,-1):
         for j in range(n):
+
             if new_arr[i][j] != 0:
                 for h in range(i-1,-1,-1):
-                    #print("before i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
+                    
                     if new_arr[h][j] == 0:
-                        #print("zero new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
                         continue
                     
                     elif new_arr[h][j] != new_arr[i][j]:
-                        #print("different i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
                         break
 
                     elif new_arr[h][j] == new_arr[i][j]:
-                        #print("same i:{}, h : {}, new_arr[i][j] : {}, new_arr[h][j] : {}".format(i,h,new_arr[i][j], new_arr[h][j]))
                         new_arr[i][j] *= 2
                         new_arr[h][j] = 0
                         break
-    
-    # for i in new_arr:
-    #     print(*i)
     
     # 아래로 내림
     for i in range(n-1,-1,-1):
