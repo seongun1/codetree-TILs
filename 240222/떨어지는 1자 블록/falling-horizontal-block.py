@@ -7,23 +7,42 @@ arr = [
 
 k -= 1
 
-for i in range(n-1,-1,-1):
+# for i in range(n-1,-1,-1):
+#     flag = True
+#     for j in range(k, k+m):
+#         if arr[i][j]:
+#             flag = False
+#             break
+#         else:
+#             for h in range(i-1,-1,-1):
+#                 if arr[h][j]:
+#                     flag = False
+#                     break
+#             if not flag:
+#                 break
+    
+#     if flag:
+#         for j in range(k,k+m):
+#             arr[i][j] = 1
+#         break
+
+idx = 0
+for i in range(n):
     flag = True
-    for j in range(k, k+m):
-        if arr[i][j] != 0:
+    
+    for j in range(k,k+m):
+        if arr[i][j]:
             flag = False
             break
-        else:
-            for h in range(i-1,-1,-1):
-                if arr[h][j]:
-                    flag = False
-                    break
-            if not flag:
-                break
-    
+
     if flag:
-        for j in range(k,k+m):
-            arr[i][j] = 1
+        idx = i
+    else:
         break
+
+
+for j in range(k,k+m):
+    arr[idx][j] = 1
+
 for i in arr:
     print(*i)
