@@ -13,6 +13,13 @@ for i in range(n-1,-1,-1):
         if arr[i][j] != 0:
             flag = False
             break
+        else:
+            for h in range(i-1,-1,-1):
+                if arr[h][j]:
+                    flag = False
+                    break
+            if not flag:
+                break
     
     if flag:
         for j in range(k,k+m):
