@@ -35,11 +35,15 @@ mapper = {
     'U': 3
 }
 
+
 def move():
-    global x, y, whole
+    global x, y,k, whole
     time = 0
     arr[x][y] = 1 # 뱀 위치
     q = [(x,y)]
+
+    if k == 0:
+        return 0
     
     while True:
         
@@ -47,9 +51,11 @@ def move():
 
             if whole == 0:
                 return time
+            
+            direct = mapper[direction]
 
             for k in range(p):
-                nx,ny = x + dx[mapper[direction]], y + dy[mapper[direction]]
+                nx,ny = x + dx[direct], y + dy[direct]
 
                 time += 1
 
