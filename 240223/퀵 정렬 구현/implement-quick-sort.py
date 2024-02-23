@@ -18,7 +18,7 @@ def quick(low,high):
     if low < high: #원소의 갯수가 2개 이상일 때
         pos = partition(low,high)
         quick(low,pos-1)
-        quick(pos,high)
+        quick(pos+1,high)
 
 quick(0,n-1)
 for a in arr:
