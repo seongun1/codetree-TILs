@@ -17,6 +17,7 @@ dxs, dys = [-1,1,0,0], [0,0,-1,1]
 
 for t in range(m):
     dist = 2 ** t
+    
     new_arr = [
         [0 for _ in range(n)]
         for _ in range(n)
@@ -26,7 +27,7 @@ for t in range(m):
         for j in range(n):
             if arr[i][j]:
                 for dx,dy in zip(dxs, dys):
-                    nx ,ny = x + dx, y + dy
+                    nx ,ny = i + dx * dist, j + dy * dist
 
                     if not in_range(nx,ny):
                         continue
