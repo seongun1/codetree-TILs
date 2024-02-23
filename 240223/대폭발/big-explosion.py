@@ -28,6 +28,9 @@ for t in range(m):
                 for dx,dy in zip(dxs, dys):
                     nx ,ny = x + dx, y + dy
 
+                    if not in_range(nx,ny):
+                        continue
+
                     new_arr[nx][ny] = 1
 
     for i in range(n):
