@@ -1,5 +1,3 @@
-from collections import deque
-
 n,m,k = map(int,input().split())
 
 arr = [
@@ -17,7 +15,7 @@ turn = []
 whole = 0
 for i in range(k):
     d,length = input().split()
-    turn.append((d, int(length)))
+    turn.append([d, int(length)])
     whole += int(length)
 
 def in_range(x,y):
@@ -25,36 +23,31 @@ def in_range(x,y):
 
 # 뱀의 위치
 x,y = 0,0
-q = deque()
-time = 0
-arr[x][y] = 1 # 뱀 위치
-q.append((x,y))
 
-move_dir = {
-    'U' : 3,
-    'D' : 2,
-    'L' : 1,
-    'R' : 0
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
+
+mapper = {
+    'R': 0,
+    'D': 1,
+    'L': 2,
+    'U': 3
 }
 
-# 동서남북
-dx,dy = [0,-1,0,1], [1,0,-1,0]
-
 def move():
-    global x,y, time,k, whole
-
-    if k == 0:
-        return 0
+    global x, y, whole
+    time = 0
+    arr[x][y] = 1 # 뱀 위치
+    q = [(x,y)]
     
     while True:
         
-        for i in turn:
-            direction, p = i
+        for direction, p in turn:
 
             if whole == 0:
                 return time
 
-            direct = move_dir[direction]
+            direct = mapper[direction]
 
             for k in range(p):
                 nx,ny = x + dx[direct], y + dy[direct]
@@ -70,7 +63,7 @@ def move():
 
                 elif arr[nx][ny] == 0 or arr[nx][ny]:
                     
-                    hx,hy = q.popleft()
+                    hx,hy = q.pop(0)
                     arr[hx][hy] = 0
 
                     if arr[nx][ny]:
@@ -83,5 +76,5 @@ def move():
                 x,y = nx,ny
                 whole -= 1
 
-move()
-print(time)
+ans = move()
+print(ans)
