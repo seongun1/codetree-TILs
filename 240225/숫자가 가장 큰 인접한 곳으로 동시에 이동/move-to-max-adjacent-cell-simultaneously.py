@@ -34,7 +34,8 @@ def get_next_pos(x,y):
         if not in_range(nx,ny):
             continue
 
-        if arr[nx][ny] > max_val:
+        # 동일한 값들에 대해서는 먼저 나오는게 우선순위를 가져서 이렇게 하기
+        if arr[nx][ny] > max_val: 
             max_val = arr[nx][ny]
             max_x, max_y = nx, ny
 
@@ -57,8 +58,8 @@ def move_all():
 
     for i in range(n):
         for j in range(n):
-            if tmp[i][j] >= 2:
-                tmp[i][j] = 0
+            # if tmp[i][j] >= 2:
+            #     tmp[i][j] = 0
             next_arr[i][j] = tmp[i][j]
 
 for _ in range(t):
