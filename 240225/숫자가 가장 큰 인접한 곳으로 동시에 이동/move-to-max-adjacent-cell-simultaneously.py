@@ -19,7 +19,7 @@ for _ in range(m):
     x,y = map(int,input().split())
     next_arr[x-1][y-1] = 1
 
-dxs,dys = [1,-1,0,0],[0,0,-1,1]
+dxs,dys = [-1,1,0,0],[0,0,-1,1]
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
