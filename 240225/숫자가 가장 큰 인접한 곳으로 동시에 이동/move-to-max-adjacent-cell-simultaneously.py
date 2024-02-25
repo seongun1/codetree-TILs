@@ -26,7 +26,7 @@ def in_range(x,y):
 
 def get_next_pos(x,y):
     max_x, max_y = x, y
-    max_val = arr[x][y]
+    max_val = 0
 
     for dx,dy in zip(dxs, dys):
         nx,ny = x + dx, y + dy
@@ -39,7 +39,7 @@ def get_next_pos(x,y):
             max_val = arr[nx][ny]
             max_x, max_y = nx, ny
 
-    return (max_x, max_y)
+    return max_x, max_y
 
 def move(x,y):
     nx,ny = get_next_pos(x,y)
@@ -58,8 +58,8 @@ def move_all():
 
     for i in range(n):
         for j in range(n):
-            # if tmp[i][j] >= 2:
-            #     tmp[i][j] = 0
+            if tmp[i][j] >= 2:
+                tmp[i][j] = 0
             next_arr[i][j] = tmp[i][j]
 
 for _ in range(t):
