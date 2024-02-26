@@ -43,7 +43,7 @@ def move_all():
 def change(): # k개 이상인지 체크하고 물갈이
     for i in range(n):
         for j in range(n):
-            if len(temp[i][j]) > k:
+            if len(temp[i][j]) >= k:
                 temp[i][j].sort(key = lambda x : (-x[0], -x[1]))
                 while len(temp[i][j]) > k:
                     temp[i][j].pop()
