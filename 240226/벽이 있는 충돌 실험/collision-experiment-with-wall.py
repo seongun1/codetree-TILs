@@ -1,8 +1,6 @@
 # 상하 좌우
 dxs,dys = [-1,1,0,0], [0,0,-1,1]
 
-MAX_TIME = 100
-
 mapper = {
     "U" : 0,
     "D" : 1,
@@ -48,7 +46,7 @@ for tc in range(int(input())):
         x,y,d = i
         arr[x][y] = [1, mapper[d]] # 공이 있는 곳
 
-    for _ in range(MAX_TIME):
+    for _ in range(n * 2):
         temp = [
             [0] * n
             for _ in range(n)
