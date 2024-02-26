@@ -12,16 +12,17 @@ arr = [
     for _ in range(n)
 ]
 
-for i in range(1,m+1):
-    x,y,d,v = input().split()
-    x,y,v = int(x)-1, int(y)-1, int(v)
-    arr[x][y].append([v, mapper[d], i]) # 속도, 방향, 번호
+for i in range(m):
+    x, y, d, v = input().split()
+    x,y,v = int(x),int(y),int(v)
+
+    arr[x - 1][y - 1].append((v, i + 1, mapper[d]))
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
 def move(x,y,v,d):
-    dx,dy = [1,0,0,-1], [0,1,-1,0]
+    dx, dy = [-1, 0, 0, 1], [0, 1, -1, 0]
 
     for _ in range(v):
         nx,ny = x + dx[d], y + dy[d]
@@ -34,22 +35,22 @@ def move(x,y,v,d):
     return (nx,ny,d)
 
 def move_all():
-    for i in range(n):
-        for j in range(n):
-            for v, direct, num in arr[i][j]:
-                nx,ny,d = move(i,j,v,direct)
-                temp[nx][ny].append([v,d,num])
+    for x in range(n):
+        for y in range(n):
+            for v, num, move_dir in arr[x][y]:
+                next_x, next_y, next_dir = move(x, y, v, move_dir)
+                temp[next_x][next_y].append((v, num, next_dir))
 
-def change(): # k개 이상인지 체크하고 물갈이
+def change():
     for i in range(n):
         for j in range(n):
             if len(temp[i][j]) >= k:
-                temp[i][j].sort(key = lambda x : (-x[0], -x[1]))
+                temp[i][j].sort(lambda x: (-x[0], -x[1]))
                 while len(temp[i][j]) > k:
                     temp[i][j].pop()
 
 for _ in range(t):
-    temp =[
+    temp = [
         [[] for _ in range(n)]
         for _ in range(n)
     ]
