@@ -39,34 +39,32 @@ def next_pos(x,y):
             cur_x, cur_y = nx,ny
 
     return cur_x, cur_y        
-                
-   
-for num in moving:
-    button = False
+
+for val in moving:
+    flag = False
 
     for i in range(n):
         for j in range(n):
 
-            if num not in arr[i][j]:
+            if val not in arr[i][j]:
                 continue
-            
-            nx, ny = next_pos(i,j)
 
-            # 새로 옮겨지면 기존의 숫자 위에 옮겨진다 => idx가 앞으로 채워진다
-            idx = 0 
-            for h, val in enumerate(arr[i][j]):
+            nx,ny = next_pos(i,j)
+
+            idx = 0
+            for h, num in enumerate(arr[i][j]):
                 if val == num:
                     idx = h
             
             arr[nx][ny] = arr[i][j][:idx+1] + arr[nx][ny]
-            # 옮겨진거 이후의 것들은 그대로 남아 있어야 한다 ( slicing의 범위 잘 체크 하기 )
             arr[i][j] = arr[i][j][idx+1:]
 
-            button = True
+            flag = True
+            break
+        
+        if flag:
             break
 
-        if button:
-            break
 
 for i in range(n):
     for j in range(n):
