@@ -29,27 +29,24 @@ for tc in range(int(input())):
     record = -1
 
     for t in range(1,4001):
-        next_arr = []
+        next_arr= []
 
         for i in arr:
-            num, x, y, w, d = i         
+            num,x,y,w,d = i
             nx,ny = x + dxs[d], y + dys[d]
 
             if in_range(nx,ny):
                 if grid[nx][ny] == -1:
-
-                    next_arr.append((num, nx,ny, w, d))
-                    grid[nx][ny] = len(next_arr) - 1
-                
+                    next_arr.append((num,nx,ny,w,d))
+                    grid[nx][ny] = len(next_arr)- 1
                 else:
                     record = t
-                    # 무게가 크면
-                    if next_arr[grid[nx][ny]][3] < w:
-                        next_arr[grid[nx][ny]] = (num, nx, ny, w, d)
-                    # 무게가 같고 번호가 크면
-                    elif next_arr[grid[nx][ny]][3] == w and next_arr[grid[nx][ny]][0] < num:
-                        next_arr[grid[nx][ny]] = (num, nx, ny, w, d)
 
+                    if next_arr[grid[nx][ny]][3] < w:
+                        next_arr[grid[nx][ny]] = (num,nx,ny,w,d)
+                    elif next_arr[grid[nx][ny]][3] == w and next_arr[grid[nx][ny]][0] < num:
+                        next_arr[grid[nx][ny]] = (num,nx,ny,w,d)
+        
         arr = next_arr[:]
 
         for i in next_arr:
