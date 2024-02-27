@@ -13,7 +13,7 @@ grid = [
 ]
 
 def in_range(x,y):
-    return 0<=x<4000 and 0<=y<4000
+    return 0<=x<4001 and 0<=y<4001
 
 for tc in range(int(input())):
 
