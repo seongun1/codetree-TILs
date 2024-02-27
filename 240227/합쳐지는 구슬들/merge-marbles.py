@@ -45,30 +45,30 @@ def arrange():
             if len(temp[i][j]) == 0:
                 continue
             
-            weight, max_weight , ball_num, direction = 0, 0, 0, 0
+            weight, max_num , direction = 0, -1, 0
 
             for w, num, direct in temp[i][j]:
                 weight += w
-                if max_weight < w:
-                    max_weight = w
-                    ball_num = num
+                if max_num <= num:
+                    max_num = num
                     direction = direct
             
-            temp[i][j] = [[weight, ball_num, direction]]
+            temp[i][j] = [[weight, max_num, direction]]
 
-
-for i in range(t):
+    
+for _ in range(t):
     temp = [
         [[] for _ in range(n)]
         for _ in range(n)
     ]
-
+		
     move_all()
     arrange()
-
+    
     for i in range(n):
         for j in range(n):
             arr[i][j] = temp[i][j]
+
     
 val,max_weight = 0, 0
 for i in range(n):
