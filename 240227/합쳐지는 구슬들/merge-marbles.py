@@ -35,13 +35,9 @@ def move(x,y,d):
 def move_all():
     for i in range(n):
         for j in range(n):
-            if len(arr[i][j]) == 0:
-                continue
-
-            for h in range(len(arr[i][j])):
-                x,y,d = move(i,j,arr[i][j][h][2])
-
-                temp[x][y].append([arr[i][j][h][0], arr[i][j][h][1], d])
+            for w, idx, direct in arr[i][j]:
+                x,y,d = move(i,j,direct)
+                temp[x][y].append([w, idx, d])
 
 def arrange():
     for i in range(n):
@@ -84,5 +80,5 @@ for i in range(n):
         for vals in arr[i][j]:
             if vals[0] > max_weight:
                 max_weight = vals[0]
-                
+
 print(val, max_weight)
