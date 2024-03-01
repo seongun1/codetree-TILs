@@ -77,4 +77,7 @@ for wall in list(cb(walls,2)):
     for x,y in wall:
         arr[x][y] = 1
 
-print(min_dist)
+if min_dist == sys.maxsize:
+    print(-1)
+else:
+    print(min_dist)
