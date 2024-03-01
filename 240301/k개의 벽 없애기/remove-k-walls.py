@@ -62,20 +62,27 @@ def init_temp_visited():
             temp[i][j] = 0
             visited[i][j] = False
 
-for wall in list(cb(walls,2)):
-    init_temp_visited()
+if k != 0:
+    for wall in list(cb(walls,2)):
+        init_temp_visited()
 
-    for x,y in wall:
-        arr[x][y] = 0
-    
+        for x,y in wall:
+            arr[x][y] = 0
+        
+        push(s_x-1,s_y-1,0)
+        bfs()
+
+        if visited[e_x-1][e_y-1]:
+            min_dist = min(min_dist, temp[e_x-1][e_y-1])
+
+        for x,y in wall:
+            arr[x][y] = 1
+else:
     push(s_x-1,s_y-1,0)
     bfs()
 
     if visited[e_x-1][e_y-1]:
         min_dist = min(min_dist, temp[e_x-1][e_y-1])
-
-    for x,y in wall:
-        arr[x][y] = 1
 
 if min_dist == sys.maxsize:
     print(-1)
