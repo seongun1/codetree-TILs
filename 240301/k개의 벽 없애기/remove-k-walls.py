@@ -53,6 +53,11 @@ def bfs():
 
             if can_go(nx,ny):
                 push(nx,ny,temp[x][y] + 1)
+    
+    if visited[e_x-1][e_y-1]:
+        return temp[e_x-1][e_y-1]
+    else:
+        return sys.maxsize
 
 min_dist = sys.maxsize
 
@@ -62,29 +67,49 @@ def init_temp_visited():
             temp[i][j] = 0
             visited[i][j] = False
 
-if k != 0:
-    for wall in list(cb(walls,2)):
-        init_temp_visited()
+def find(idx, cnt):
+    global min_dist
 
-        for x,y in wall:
-            arr[x][y] = 0
+    if idx == len(walls):
+        if cnt == k:
+            init_temp_visited()
+
+            push(s_x-1, s_y-1, 0)
+            ans = bfs()
+            min_dist = min(min_dist, ans)
+
+        return
+    
+    x,y = walls[idx]
+    arr[x][y] = 0
+    find(idx+1, cnt+1)
+    arr[x][y] = 1
+    find(idx+1, cnt)
+find(0,0)    
+
+# if k != 0:
+#     for wall in list(cb(walls,2)):
+#         init_temp_visited()
+
+#         for x,y in wall:
+#             arr[x][y] = 0
         
-        push(s_x-1,s_y-1,0)
-        bfs()
+#         push(s_x-1,s_y-1,0)
+#         bfs()
 
-        if visited[e_x-1][e_y-1]:
-            min_dist = min(min_dist, temp[e_x-1][e_y-1])
+#         if visited[e_x-1][e_y-1]:
+#             min_dist = min(min_dist, temp[e_x-1][e_y-1])
 
-        for x,y in wall:
-            arr[x][y] = 1
-else:
-    push(s_x-1,s_y-1,0)
-    bfs()
+#         for x,y in wall:
+#             arr[x][y] = 1
+# else:
+#     push(s_x-1,s_y-1,0)
+#     bfs()
 
-    if visited[e_x-1][e_y-1]:
-        min_dist = min(min_dist, temp[e_x-1][e_y-1])
+#     if visited[e_x-1][e_y-1]:
+#         min_dist = min(min_dist, temp[e_x-1][e_y-1])
 
 if min_dist == sys.maxsize:
-    print(-1)
-else:
-    print(min_dist)
+    min_dist = -1
+
+print(min_dist)
