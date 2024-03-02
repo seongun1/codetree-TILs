@@ -9,6 +9,9 @@ res = 0
 while q:
     val = q.popleft()
 
+    if val == 1:
+        break
+
     if val % 3 == 0:
         val //= 3
     elif val % 2 == 0:
@@ -21,10 +24,6 @@ while q:
         val -= 1
     
     res += 1
-    #print("val : {}, res : {}".format(val, res))
-
-    if val == 1:
-        break
     q.append(val)
 
 print(res)
