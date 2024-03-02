@@ -3,27 +3,49 @@ from collections import deque
 n = int(input())
 
 q = deque()
-q.append((n))
-res = 0
+q.append((n,0))
 
-while q:
-    val = q.popleft()
+visited = set()
+visited.add(n)
 
-    if val == 1:
-        break
+ans = 0
+def bfs():
+    global ans
+    while q:
+        val, res = q.popleft()
 
-    if val % 3 == 0:
-        val //= 3
-    elif val % 2 == 0:
-        val //= 2
-    elif (val + 1) % 2 == 0 or (val + 1) % 3 == 0:
-        val += 1
-    elif (val - 1) % 2 == 0 or (val - 1) % 3 == 0:
-        val -= 1
-    else:
-        val -= 1
-    
-    res += 1
-    q.append(val)
+        if val == 1:
+            ans = res
+            break 
 
-print(res)
+        # if (val // 2) not in visited and val % 2 == 0:
+        #     val //= 2
+        # if (val // 3) not in visited and val % 3 == 0:
+        #     val //= 3
+        # if val - 1 not in visited:
+        #     val -= 1
+        # if val + 1 not in visited:
+        #     val += 1
+        
+        # res += 1
+        # visited.add(val)
+        # q.append(val)
+        # print("res : {}, val : {}".format(res, val))
+        if val // 3 not in visited and val % 3 == 0:
+            visited.add(val //3)
+            q.append((val //3, res+1))
+
+        if val // 2 not in visited and val % 2 == 0:
+            visited.add(val //2)
+            q.append((val //2, res+1))
+
+        if val -1 not in visited:
+            visited.add(val -1)
+            q.append((val -1, res+1))
+
+        if val +1 not in visited:
+            visited.add(val +1)
+            q.append((val +1, res+1))
+        
+bfs()
+print(ans)
