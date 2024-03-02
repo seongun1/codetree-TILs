@@ -1,16 +1,30 @@
+from collections import deque
+
 n = int(input())
 
-d = [0] * (n+1)
-d[1] = 0
+q = deque()
+q.append((n))
+res = 0
 
-for i in range(2,n+1):
-    d[i] = d[i-1] + 1
-    if i % 2 == 0:
-        d[i] = min(d[i], d[i//2] + 1)
-    elif i % 3 == 0:
-        d[i] = min(d[i], d[i//3] + 1)
-    elif i + 1 == 0:
-        d[i] = min(d[i], d[i//5] + 1)
-    elif i - 1 == 0:
-        d[i] = min(d[i], d[i-1] + 1)
-print(d[n])
+while q:
+    val = q.popleft()
+
+    if val % 3 == 0:
+        val //= 3
+    elif val % 2 == 0:
+        val //= 2
+    elif (val + 1) % 2 == 0 or (val + 1) % 3 == 0:
+        val += 1
+    elif (val - 1) % 2 == 0 or (val - 1) % 3 == 0:
+        val -= 1
+    else:
+        val -= 1
+    
+    res += 1
+    #print("val : {}, res : {}".format(val, res))
+
+    if val == 1:
+        break
+    q.append(val)
+
+print(res)
