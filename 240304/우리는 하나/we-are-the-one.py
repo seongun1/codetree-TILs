@@ -20,13 +20,14 @@ visited = [
     for _ in range(n)
 ]
 
+coords_list = []
 coords = [
     (i,j)
     for i in range(n)
     for j in range(n)
 ]
 
-coords_list = list(cb(coords,k))
+#coords_list = list(cb(coords,k))
 
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
@@ -56,22 +57,58 @@ def bfs():
             if can_go(nx,ny,arr[x][y]):
                 push(nx,ny)
 
-for city in coords_list:
+def calc():
     init_visited()
-    q = deque()
 
-    for c in city:
-        x,y = c
+    for x,y in coords_list:
         q.append((x,y))
         visited[x][y] = True
     
     bfs()
-    
+
     cnt = 0
     for i in range(n):
         for j in range(n):
             if visited[i][j]:
                 cnt += 1
+    return cnt
+
+def choose(idx, cnt):
+    global ans
+
+    if cnt > k:
+        return
     
-    ans = max(ans, cnt)
+    if idx == n ** 2:
+        if cnt == k:
+            ans = max(ans, calc())
+        return
+    
+    coords_list.append(coords[idx])
+    choose(idx+1, cnt+1)
+    coords_list.pop()
+    choose(idx+1, cnt)
+
+choose(0,0)
 print(ans)
+
+
+# for city in coords_list:
+#     init_visited()
+#     q = deque()
+
+#     for c in city:
+#         x,y = c
+#         q.append((x,y))
+#         visited[x][y] = True
+    
+#     bfs()
+    
+#     cnt = 0
+#     for i in range(n):
+#         for j in range(n):
+#             if visited[i][j]:
+#                 cnt += 1
+    
+#     ans = max(ans, cnt)
+# print(ans)
