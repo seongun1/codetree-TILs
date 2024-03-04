@@ -1,12 +1,11 @@
-import sys
-
 n,m,k = map(int,input().split())
 arr = list(map(int,input().split()))
 
-max_val = 0
-ans = [1] * k
+ans = [1] * k # 움직이는 윷들
 
-def calc():
+max_val = 0
+
+def Print():
     global max_val
     cnt = 0
     for i in ans:
@@ -14,22 +13,20 @@ def calc():
             cnt += 1
     max_val = max(max_val, cnt)
 
-def choose(idx):
-    global max_val
-
-    if idx == n:
-        calc()
+def choose(cnt):
+    if cnt == n:
+        Print()
         return
-
+    
     for i in range(k):
         if ans[i] >= m:
             continue
         
-        ans[i] += arr[idx]
-        choose(idx+1)
-        ans[i] -= arr[idx]
-
-    calc()
+        ans[i] += arr[cnt]
+        choose(cnt + 1)
+        ans[i] -= arr[cnt]
+    
+    Print()
     return
 
 choose(0)
