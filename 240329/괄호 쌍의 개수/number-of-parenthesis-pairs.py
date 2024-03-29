@@ -9,9 +9,8 @@ def is_correct():
     stack = arr.copy()
     cnt_a,cnt_b = 0,0
 
-    while (stack):
-        tmp = stack.pop()
-        if tmp =='(':
+    for tmp in range(len(stack)-1,-1,-1):
+        if stack[tmp] =='(':
             cnt_a +=1
             cnt -=1
         else:
