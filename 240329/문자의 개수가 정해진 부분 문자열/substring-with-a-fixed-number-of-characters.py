@@ -4,7 +4,7 @@ arr = list(arr)
 max_cnt = 0
 index = 0
 cnt_a,cnt_b = 0,0
-while (index <=n-1):
+while (index <n):
     for right in range(n,-1,-1):
         tmp = arr[index:right]
         for t in tmp:
