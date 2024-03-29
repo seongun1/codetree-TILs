@@ -1,4 +1,6 @@
-arr =input()
+from sys import stdin
+
+arr =stdin.readline()
 
 arr=list(arr)
 flag = False
