@@ -13,7 +13,7 @@ def check(a,b,cnt_a,cnt_b):
 for left in range(0,n):
     for right in range(left+1,n+1):
         tmp = arr[left:right]
-        #print(tmp)
+        print(tmp)
         for t in tmp:
             if t == 'a':
                 cnt_a +=1
