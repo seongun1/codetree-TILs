@@ -9,4 +9,4 @@ for t in tmp:
     n += t
     cnt +=1
 print(n)
-print(f'{n/cnt}')
+print(round(n/cnt,1))
