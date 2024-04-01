@@ -4,13 +4,9 @@ arr= input()
 arr = list(arr)
 #print(len(arr))
 max_cnt = 0
-left = 0
 
 global cnt_a
 global cnt_b
-
-def check(a,b,cnt_a,cnt_b):
-    return cnt_a <= a and cnt_b>=b
 
 def count_alpha(tmp):
     cnt_a,cnt_b = 0,0
@@ -20,8 +16,7 @@ def count_alpha(tmp):
         else:
             cnt_b +=1
         if cnt_a > a and cnt_b >= b:
-            tmp = tmp[:i]
-            return tmp
+            return tmp[:i]
     if cnt_b < b:
         tmp =[]
     return tmp
