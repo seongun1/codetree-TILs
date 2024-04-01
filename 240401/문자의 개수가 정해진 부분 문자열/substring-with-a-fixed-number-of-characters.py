@@ -19,9 +19,11 @@ def count_alpha(tmp):
             cnt_a +=1
         else:
             cnt_b +=1
-        if cnt_a > a:
+        if cnt_a > a and cnt_b >= b:
             tmp = tmp[:i]
             return tmp
+    if cnt_b < b:
+        tmp =[]
     return tmp
 
 for left in range(0,n):
