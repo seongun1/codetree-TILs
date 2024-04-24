@@ -1,7 +1,8 @@
+import sys
 string = input()
 
 alpha,oper,ans=[],[],[]
-max_val = 0
+max_val = -sys.maxsize
 
 for i in string:
     if i.isalpha():
@@ -11,8 +12,7 @@ for i in string:
 
 dic = {}
 for i in alpha:
-    if i not in dic:
-        dic[i] = 0
+    dic[i] = 0
 
 def calc():
     for i,k in enumerate(dic.keys()):
