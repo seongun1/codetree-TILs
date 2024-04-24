@@ -23,9 +23,9 @@ def calc():
         next_val = dic[alpha[i+1]]
         if op == '+':
             val += next_val
-        if op == '-':
+        elif op == '-':
             val -= next_val
-        if op == '*':
+        elif op == '*':
             val *= next_val
     return val
 
@@ -33,7 +33,7 @@ def calc():
 def choose(cnt):
     global max_val
 
-    if cnt == len(dic):
+    if cnt == len(alpha):
         max_val = max(max_val, calc())
         return 
 
