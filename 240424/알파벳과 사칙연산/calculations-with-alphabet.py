@@ -33,7 +33,7 @@ def calc():
 def choose(cnt):
     global max_val
 
-    if cnt == len(alpha):
+    if cnt == len(dic):
         max_val = max(max_val, calc())
         return 
 
