@@ -1,7 +1,9 @@
 import sys
+
 string = input()
 
-alpha,oper,ans=[],[],[]
+alpha, oper, ans = list(),list(),list()
+
 max_val = -sys.maxsize
 
 for i in string:
@@ -33,7 +35,7 @@ def calc():
 def choose(cnt):
     global max_val
 
-    if cnt == len(alpha):
+    if cnt == len(dic):
         max_val = max(max_val, calc())
         return 
 
