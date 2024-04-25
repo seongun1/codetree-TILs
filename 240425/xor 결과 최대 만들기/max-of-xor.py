@@ -6,18 +6,19 @@ ans = []
 
 def Print():
     val = ans[0]
-    for i in ans[1:]:
-        val ^= i
+    if len(ans) >= 2:
+        for i in ans[1:]:
+            val ^= i
     return val
 
 def choose(idx, cnt):
     global max_val
 
-    if idx == n:
-        return
-
     if cnt == m:
         max_val = max(max_val, Print())
+        return
+
+    if idx == n:
         return
     
     ans.append(arr[idx])
