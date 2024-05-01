@@ -13,13 +13,13 @@ def search_row(arr,n,m):
                 if arr[i][j] != arr[i][j+k]:
                     break
             else:
-                cnt = 1
+                cnt =1
                 break
-        if cnt ==1:
+        if cnt:
             ans +=1
 
 def search_coloum(arr,n,m):
-    global ans
+    global ans 
     for i in range(n):
         cnt =0
         for j in range(n-m+1):
@@ -27,9 +27,9 @@ def search_coloum(arr,n,m):
                 if arr[j][i] != arr[j+k][i]:
                     break
             else:
-                cnt =1
+                cnt +=1
                 break
-        if cnt == 1:
+        if cnt:
             ans +=1
 search_coloum(arr,n,m)
 search_row(arr,n,m)
