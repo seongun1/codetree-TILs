@@ -34,3 +34,6 @@ def choose(idx, cnt):
     choose(idx+1, cnt+1)
     ans.pop()
     choose(idx+1, cnt)
+
+choose(0,0)
+print(min_val)
