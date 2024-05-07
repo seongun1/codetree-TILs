@@ -4,7 +4,7 @@ n,m = map(int,input().split())
 arr = [list(map(int,input().split())) for _ in range(n)]
 
 def count_gold():
-    max_ans = -1
+    max_ans = 0
     for k in range(50):
         if k>n:
             break
