@@ -18,7 +18,7 @@ def count_gold():
                             gold += 1
                 spend = k *k + (k+1) * (k+1)
                 profit = (gold*m) - spend
-                if profit > 0:
+                if profit >= 0:
                     max_ans = max(gold,max_ans)
     return max_ans
 print(count_gold())
