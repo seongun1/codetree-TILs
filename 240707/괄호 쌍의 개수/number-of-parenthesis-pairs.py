@@ -1,40 +1,38 @@
-from sys import stdin
-
-arr =stdin.readline()
-
-arr=list(arr)
-flag = False
-ans = 0
-
-def is_correct():
-    cnt =0
-    stack = arr.copy()
-    cnt_a,cnt_b = 0,0
-
-    for tmp in range(len(stack)-1,-1,-1):
-        if stack[tmp] =='(':
-            cnt_a +=1
-            cnt -=1
+tmp = input()
+tmp = list(tmp)
+def is_correct(tmp):
+    a,b = 0,0
+    for t in tmp:
+        if t =='(':
+            a +=1
         else:
-            cnt_b +=1
-            cnt +=1
-        if cnt <0:
-            return False
-    if cnt_a != cnt_b:
-        return False
-    return True
+            b+=1
+    return a ==b
 
-for i in range(len(arr)):
-    if arr[i] == '(':
-        arr[i] = ')'
-    else: #a == ')'
-        arr[i]='('
-    #print(arr)
-    if is_correct():
-        #print(i)
-        ans +=1
-    if arr[i] == '(':
-        arr[i] = ')'
+cnt =0
+
+for i in range(len(tmp)): #하나씩 변경
+    if tmp[i] == '(':
+        tmp[i] = ')'
     else:
-        arr[i] = '('
-print(ans)
+        tmp[i] = '('
+    #print(tmp)
+    if not is_correct(tmp):
+        if tmp[i] == '(': tmp[i] =')'
+        else: tmp[i] ='('
+        continue
+    a,b = 0,0
+    success = True
+    for j in range(len(tmp)):
+        if tmp[j] == '(':
+            a +=1
+        else:
+            b +=1
+        if a <b:
+            success = False
+            break
+    if success:
+        cnt +=1
+    if tmp[i] == '(': tmp[i] =')'
+    else: tmp[i] = '('
+print(cnt)
