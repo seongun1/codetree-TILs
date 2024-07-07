@@ -1,38 +1,23 @@
 tmp = input()
 tmp = list(tmp)
-def is_correct(tmp):
-    a,b = 0,0
-    for t in tmp:
-        if t =='(':
-            a +=1
-        else:
-            b+=1
-    return a ==b
 
-cnt =0
-
-for i in range(len(tmp)): #하나씩 변경
-    if tmp[i] == '(':
-        tmp[i] = ')'
-    else:
-        tmp[i] = '('
-    #print(tmp)
-    if not is_correct(tmp):
-        if tmp[i] == '(': tmp[i] =')'
-        else: tmp[i] ='('
-        continue
-    a,b = 0,0
-    success = True
-    for j in range(len(tmp)):
-        if tmp[j] == '(':
-            a +=1
+def is_balanced_and_valid(s):
+    balance = 0
+    for char in s:
+        if char == '(':
+            balance += 1
         else:
-            b +=1
-        if a <b:
-            success = False
-            break
-    if success:
-        cnt +=1
-    if tmp[i] == '(': tmp[i] =')'
-    else: tmp[i] = '('
+            balance -= 1
+        if balance < 0:
+            return False
+    return balance == 0
+
+cnt = 0
+for i in range(len(tmp)):
+    original = tmp[i]
+    tmp[i] = ')' if tmp[i] == '(' else '('  # Flip the bracket
+    if is_balanced_and_valid(tmp):
+        cnt += 1
+    tmp[i] = original  # Restore the original bracket
+
 print(cnt)
